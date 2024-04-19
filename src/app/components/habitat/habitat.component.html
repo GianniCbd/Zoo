@@ -1,0 +1,317 @@
+<main class="main">
+  <section class="habitat">
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active d-none d-md-block">
+          <img
+            src="https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="fotoDesk"
+            class="habitat-image"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://images.pexels.com/photos/847402/pexels-photo-847402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="fotoDesk"
+            class="habitat-image"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://images.pexels.com/photos/2862070/pexels-photo-2862070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="fotoDesk"
+            class="habitat-image"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://images.pexels.com/photos/4318231/pexels-photo-4318231.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="fotoDesk"
+            class="habitat-image"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="my-4 fw-bolder">Esplorando l'habitat naturale</h3>
+        <h6>
+          Benvenuti nell'incantevole mondo degli habitat naturali, dove la vita
+          selvatica prospera in armonia con la natura circostante. Scopriamo
+          insieme uno di questi affascinanti ambienti.
+        </h6>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-3">
+        <ng-container *ngFor="let habitat of habitats">
+          <ng-container *ngIf="habitat.type === 'Savana'">
+            <h5 class="my-4 fw-bolder fs-3">{{ habitat.type }}</h5>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-sm-12">
+        <p>
+          Esplora la vasta distesa della savana africana, un paesaggio dominato
+          dalla vastità delle pianure e dall'infinito cielo. Qui, la
+          biodiversità si manifesta in modi sorprendenti, con erbe alte e alberi
+          sparsi che creano un ambiente unico per una varietà di creature
+          affascinanti. Dalle maestose giraffe ai possenti elefanti, la savana è
+          la dimora di alcuni degli animali più iconici del pianeta.
+        </p>
+        <div class="text-center d-flex justify-content-between">
+          <img
+            src="https://images.pexels.com/photos/13255266/pexels-photo-13255266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Savana"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/4846091/pexels-photo-4846091.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Savana"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/1233286/pexels-photo-1233286.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Savana"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+        </div>
+        <p class="pt-3">
+          Questo ambiente dinamico è caratterizzato da una stagione secca
+          implacabile, seguita da piogge torrenziali che trasformano il
+          paesaggio in un mare verde di rigogliosa vegetazione. Gli animali
+          migrano seguendo il ciclo delle stagioni, adattandosi a una vita di
+          costante movimento e cambiamento.
+        </p>
+        <p>
+          Esplorare la savana significa immergersi in un mondo di sopravvivenza
+          e adattamento, dove ogni animale e pianta ha un ruolo cruciale nella
+          perpetuazione dell'ecosistema. Ogni alba e tramonto rivela nuove
+          sorprese e ogni branco di animali racconta una storia di resilienza e
+          perseveranza.
+        </p>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-3">
+        <ng-container *ngFor="let habitat of habitats">
+          <ng-container *ngIf="habitat.type === 'Antartide/Artico'">
+            <h5 class="my-4 fw-bolder fs-3">{{ habitat.type }}</h5>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-sm-12">
+        <p>
+          Esplora i vasti paesaggi dell'Artico e dell'Antartide, mondi glaciali
+          dominati dalla vastità dei ghiacci e dalla luce polarizzata. Qui, la
+          biodiversità si manifesta in modi sorprendenti, con creature adattate
+          alla vita estrema in un ambiente di gelo.
+        </p>
+        <div class="text-center d-flex justify-content-between">
+          <img
+            src="https://images.pexels.com/photos/2574983/pexels-photo-2574983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Artico"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+
+          <img
+            src="https://images.pexels.com/photos/1933316/pexels-photo-1933316.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 "
+            alt="Artico"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+
+          <img
+            src="https://images.pexels.com/photos/3384695/pexels-photo-3384695.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 "
+            alt="Artico"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+        </div>
+
+        <p class="pt-3">
+          Questi ambienti ostili sono caratterizzati da temperature estreme e
+          dalla presenza costante del ghiaccio. Gli animali artici e antartici
+          si sono adattati a sopravvivere in condizioni estreme, da orsi polari
+          e pinguini a foche e trichechi, ognuno con un ruolo cruciale nei
+          rispettivi ecosistemi.
+        </p>
+        <p>
+          Esplorare l'Artico e l'Antartide significa immergersi in mondi di
+          sfide e di meraviglie, dove la natura regna sovrana e ogni incontro
+          con la vita selvatica è un'esperienza unica e indimenticabile.
+        </p>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-3">
+        <ng-container *ngFor="let habitat of habitats">
+          <ng-container *ngIf="habitat.type === 'Taiga'">
+            <h5 class="my-4 fw-bolder fs-3">{{ habitat.type }}</h5>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-sm-12">
+        <p>
+          Esplora i vasti paesaggi della Taiga, una foresta boreale che si
+          estende attraverso le regioni settentrionali del mondo. Qui, gli
+          alberi di conifere dominano il paesaggio, creando un ambiente unico e
+          affascinante.
+        </p>
+        <div class="text-center d-flex justify-content-between">
+          <img
+            src="https://images.pexels.com/photos/6526177/pexels-photo-6526177.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Taiga"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/11546807/pexels-photo-11546807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Taiga"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/10404273/pexels-photo-10404273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Taiga"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+        </div>
+        <p class="pt-3">
+          La Taiga è caratterizzata da inverni lunghi e rigidi e estati brevi e
+          fresche. La vegetazione è principalmente composta da conifere come
+          pini, abeti e larici, insieme a una varietà di muschi e licheni.
+          Questo habitat è popolato da una vasta gamma di animali, tra cui alci,
+          orsi, lupi e volpi, che si sono adattati alle rigide condizioni
+          climatiche.
+        </p>
+        <p>
+          Esplorare la Taiga significa immergersi in una delle foreste più
+          grandi e importanti del mondo, dove la vita selvatica abbonda e la
+          natura offre uno spettacolo mozzafiato in tutte le stagioni.
+        </p>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-3">
+        <ng-container *ngFor="let habitat of habitats">
+          <ng-container *ngIf="habitat.type === 'Deserto'">
+            <h5 class="my-4 fw-bolder fs-3">{{ habitat.type }}</h5>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-sm-12">
+        <p>
+          Esplora i vasti paesaggi del deserto, dove le dune di sabbia si
+          estendono all'infinito sotto un cielo vasto e aperto. Qui, la vita si
+          adatta alle condizioni estreme, con piante e animali che hanno
+          sviluppato adattamenti unici per sopravvivere alla scarsità d'acqua e
+          alle temperature estreme.
+        </p>
+        <div class="text-center d-flex justify-content-between">
+          <img
+            src="https://images.pexels.com/photos/1001435/pexels-photo-1001435.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Deserto"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/998653/pexels-photo-998653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Deserto"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/1352196/pexels-photo-1352196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Deserto"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+        </div>
+        <p class="pt-3">
+          I deserti sono caratterizzati da condizioni aride, con precipitazioni
+          scarse e temperature estreme che possono variare significativamente
+          tra il giorno e la notte. La vegetazione è sparsa e comprende cactus,
+          piante succulente e arbusti adattati alla conservazione dell'acqua.
+          Gli animali del deserto includono rettili come i serpenti e i sauri,
+          mammiferi come i cammelli e i coyote, e una varietà di insetti
+          adattati alla vita nel deserto.
+        </p>
+        <p>
+          Esplorare il deserto significa immergersi in un paesaggio selvaggio e
+          remoto, dove la bellezza cruda e la tranquillità della natura si
+          fondono in un'esperienza unica e suggestiva.
+        </p>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-3">
+        <ng-container *ngFor="let habitat of habitats">
+          <ng-container *ngIf="habitat.type === 'Foresta Pluviale'">
+            <h5 class="my-4 fw-bolder fs-3">{{ habitat.type }}</h5>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="col-sm-12">
+        <p>
+          Esplora i lussureggianti paesaggi della foresta pluviale, dove una
+          vegetazione rigogliosa e una vasta gamma di specie animali rendono
+          questo habitat uno dei più diversificati del pianeta. Qui, le piogge
+          abbondanti e il caldo clima tropicale creano le condizioni ideali per
+          la crescita di alberi giganti, piante rampicanti e una grande varietà
+          di vita selvatica.
+        </p>
+        <div class="text-center d-flex justify-content-between">
+          <img
+            src="https://images.pexels.com/photos/788200/pexels-photo-788200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Foresta Pluviale"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/339614/pexels-photo-339614.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Foresta Pluviale"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+          <img
+            src="https://images.pexels.com/photos/927414/pexels-photo-927414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Foresta Pluviale"
+            class="mx-auto img-fluid"
+            width="300px"
+          />
+        </div>
+        <p class="pt-3">
+          Le foreste pluviali sono caratterizzate da una vegetazione
+          lussureggiante, con alberi alti e frondosi che formano un fitto
+          baldacchino sopra il suolo. Questo habitat è abitato da una vasta
+          gamma di creature, tra cui scimmie, serpenti, uccelli tropicali,
+          felini e migliaia di specie di insetti. La foresta pluviale è anche
+          una fonte cruciale di ossigeno per il pianeta e svolge un ruolo
+          fondamentale nell'equilibrio climatico globale.
+        </p>
+        <p>
+          Esplorare la foresta pluviale significa immergersi in un mondo
+          vibrante e pulsante di vita, dove ogni angolo nasconde una nuova
+          sorpresa e ogni incontro con la natura è un'esperienza
+          indimenticabile.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>

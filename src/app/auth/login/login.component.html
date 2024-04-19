@@ -1,0 +1,59 @@
+<div
+  class="container d-flex align-items-center justify-content-center login-container mt-5"
+>
+  <img
+    class="logo"
+    src="https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    alt="Logo"
+  />
+  <div class="card">
+    <div class="card-body">
+      <form #form="ngForm" (ngSubmit)="login(form)">
+        <div class="form-group">
+          <div class="mb-5">
+            <h1 class="text-center fancy">ZooSafariWeb</h1>
+            <p class="text-center">
+              Goditi un avventura multimediale tra i nostri animali
+            </p>
+          </div>
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="form-control"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="form-control"
+            ngModel
+          />
+        </div>
+        <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            class="btn btn-dark mt-3"
+            [disabled]="form.invalid"
+          >
+            Accedi
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+      Vieni a vedere il nostro zoo!
+      <a href="/register" class="text-decoration-none text-dark ps-2"
+        >Registrati</a
+      >
+    </div>
+  </div>
+</div>

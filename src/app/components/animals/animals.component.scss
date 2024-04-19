@@ -1,0 +1,60 @@
+.card {
+  width: calc(100% - 20px);
+  max-width: 400px; /* Imposta la larghezza massima */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px auto;
+  overflow: hidden;
+  border: 3px solid black;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  padding: 0;
+  color: #555;
+}
+.fade:not(.show) {
+  opacity: 1;
+}
+@media screen and (max-width: 600px) {
+  .card {
+    width: calc(100% - 40px);
+  }
+}
+
+.modal-container {
+  position: fixed;
+  margin-top: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.modal-content {
+  background-color: #36fb81;
+  border-top-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  // background-image: url(../../../assets/image/foglia.jpg);
+  // background-size: cover;
+  // overflow: hidden;
+  border: 3px solid black;
+}

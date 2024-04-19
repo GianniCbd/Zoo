@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand">
+  <div class="container-fluid">
+    <a [routerLink]="['/intro']" *ngIf="!utente" routerLinkActive="active"> </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item d-flex justify-content-center" *ngIf="utente">
+          <img
+            src="../../../assets/svgAnimals/bear-pawprint-svgrepo-com.svg"
+            alt=""
+            width="25px"
+            class="px-1"
+          />
+          <a
+            class="nav-link active"
+            [routerLink]="['/home']"
+            routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <div class="centrale d-flex">
+          <li class="nav-item" *ngIf="utente">
+            <a
+              class="nav-link"
+              [routerLink]="['/animal']"
+              routerLinkActive="active"
+              >Animali</a
+            >
+          </li>
+          <li class="nav-item" *ngIf="utente">
+            <a
+              class="nav-link"
+              [routerLink]="['/habitat']"
+              routerLinkActive="active"
+              >Zone Faunistiche</a
+            >
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="utente">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Lo zoo
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="/zoo">Zoo</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/animal">Animali</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/habitat">Habitat</a>
+              </li>
+            </ul>
+          </li>
+        </div>
+        <li class="nav-item" *ngIf="!utente">
+          <a
+            class="nav-link"
+            [routerLink]="['/intro']"
+            routerLinkActive="active"
+            ><img
+              src="../../../assets/svgAnimals/bear-pawprint-svgrepo-com.svg"
+              alt=""
+              width="25px"
+          /></a>
+        </li>
+        <li class="nav-item" *ngIf="!utente">
+          <a
+            class="nav-link"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="!utente">
+          <a
+            class="nav-link"
+            [routerLink]="['/register']"
+            routerLinkActive="active"
+            >Registrati</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div>
+      <a class="dropdown-item" href="#" *ngIf="utente" (click)="logout()"
+        >Logout</a
+      >
+    </div>
+  </div>
+</nav>

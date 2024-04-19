@@ -1,0 +1,49 @@
+.main {
+  background: linear-gradient(to bottom, #a1f8e9, #0ded45);
+}
+
+.habitat {
+  width: 100%;
+  overflow: hidden;
+}
+
+.habitat-image {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+}
+
+h3 {
+  border-bottom: 2px solid #666;
+}
+
+h5 {
+  font-style: italic;
+  border-bottom: 2px solid #666;
+}
+
+.img-fluid {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  box-shadow: 1px 3px 21px 12px #444444;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .img-fluid {
+    width: 225px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img-fluid {
+    width: 125px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .img-fluid {
+    width: 75px;
+  }
+}
