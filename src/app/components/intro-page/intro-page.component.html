@@ -9,11 +9,16 @@
   </div>
   <div class="wave"></div>
 </section>
+
 <section class="about" id="about">
   <h2 class="deco-title">About us</h2>
   <div class="box-container">
     <div class="image">
-      <img src="../../../assets/image/Progetto senza titolo.png" alt="" />
+      <img
+        src="../../../assets/image/Progetto senza titolo.png"
+        alt=""
+        class="image-fluid"
+      />
     </div>
     <div class="content">
       <h5 class="title">
@@ -32,8 +37,10 @@
           <h5>Educhiamo</h5>
         </div>
         <div class="icons">
-          <i class="bi bi-megaphone-fill"></i>
-          <h5>Giochiamo</h5>
+          <a [routerLink]="['/chess']" class="text-decoration-none text-dark">
+            <i class="bi bi-megaphone-fill"></i>
+            <h5>Giochiamo</h5></a
+          >
         </div>
         <div class="icons">
           <i class="bi bi-book-fill"></i>
@@ -43,7 +50,8 @@
     </div>
   </div>
 </section>
-<section class="gallery" id="gallery">
+
+<div class="gallery p-5 mb-5" id="gallery">
   <h2 class="heading fw-bolder fs-1">Galleria</h2>
   <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-inner">
@@ -99,10 +107,10 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</section>
-<section class="animal" id="animal">
-  <h2 class="heading">Animali</h2>
+</div>
 
+<section class="animal" id="animal">
+  <h2 class="heading fw-bolder fs-1">Animali</h2>
   <div class="box-container">
     <div class="box">
       <img
@@ -150,7 +158,7 @@
 </section>
 
 <section class="banner">
-  <div class="row">
+  <div class="row p-5">
     <div class="content">
       <h3>Rilassati con gli animali</h3>
       <p>
@@ -161,7 +169,110 @@
       </p>
     </div>
     <div class="image">
-      <img src="../../../assets/image/ghepardoOvale.png" alt="" />
+      <img src="../../../assets/image/ghepardoOvale (2).png" alt="" />
     </div>
+  </div>
+</section>
+
+<div class="pricing my-5" id="pricing">
+  <h2 class="heading fw-bolder fs-1">Prezzo</h2>
+  <div class="box-container px-4">
+    <div class="box">
+      <img
+        src="../../../assets/image/man-396307_640.jpg"
+        alt=""
+        class="img-pricing image-fluid"
+      />
+      <h3>Individuale</h3>
+      <h4 class="price">12€</h4>
+      <p>Entrata dalle 9:00 alle 18:00</p>
+    </div>
+    <div class="box">
+      <img
+        src="../../../assets/image/school-bus-2645085_640.jpg"
+        alt=""
+        class="img-pricing image-fluid"
+      />
+      <h3>Scuola</h3>
+      <h4 class="price">10€</h4>
+      <p>Entrata dalle 9:00 alle 18:00</p>
+    </div>
+    <div class="box">
+      <img
+        src="../../../assets/image/family-7392843_640.jpg"
+        alt=""
+        class="img-pricing image-fluid"
+      />
+      <h3>Famiglie</h3>
+      <h4 class="price">8€</h4>
+      <p>Entrata dalle 9:00 alle 18:00</p>
+    </div>
+  </div>
+</div>
+
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <div class="d-flex align-items-baseline">
+        <img
+          src="../../../assets/svgAnimals/bear-pawprint-svgrepo-com.svg"
+          alt=""
+          width="30px"
+        />
+        <h3>Zoo</h3>
+      </div>
+
+      <p>Orari del nostro centralino.</p>
+      <p class="links"><i class="bi bi-calendar-check"></i> lunedì-venerdì</p>
+      <p class="days">7:00AM - 20:00PM</p>
+    </div>
+
+    <div class="box">
+      <h3>Contattaci</h3>
+      <a href="#" class="links"
+        ><i class="bi bi-telephone-fill"></i> 1234566789</a
+      >
+      <a href="#" class="links"
+        ><i class="bi bi-envelope-at-fill"></i> zoo@park.com</a
+      >
+      <a href="#" class="links"
+        ><i class="bi bi-geo-alt-fill"></i> Cagliari,Italy</a
+      >
+    </div>
+
+    <div class="box">
+      <h3>Link rapidi</h3>
+      <a href="" class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> home</a
+      >
+      <a href="" class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> about</a
+      >
+      <a href="" class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> galleria</a
+      >
+      <a href="" class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> animali</a
+      >
+      <a href="" class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> prezzi</a
+      >
+    </div>
+
+    <div class="box">
+      <h3>NewsLetter</h3>
+      <p>Iscriviti per ricevere le ultime novità</p>
+      <a [routerLink]="['/register']" class="btn">iscriviti!</a>
+      <div class="share">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="credit">
+    &copy; 2024 zoowebpark. All rights served by
+    <a href="#" class="link">GianniCbd</a>
   </div>
 </section>

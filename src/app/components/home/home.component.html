@@ -1,60 +1,136 @@
-<div class="container mt-5 pt-3">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>{{ currentUser.name }}, Benvenuto a ZooParkWeb</h1>
-      <p>
-        Esplora il nostro fantastico zoo virtuale e scopri le meraviglie della
-        natura!
-      </p>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-md-6">
+<div
+  id="carouselExampleAutoplaying"
+  class="carousel slide w-100 d-block custom-carousel"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
       <img
-        src="../../../assets/image/elefantiHabitat.jpg"
-        class="img-fluid"
-        alt="Habitat"
-        width="650px"
-        height="650px"
+        src="https://images.pexels.com/photos/2220337/pexels-photo-2220337.jpeg?auto=compress&cs=tinysrgb&w=600"
+        class="img d-block w-100"
+        alt="Kenburns image"
       />
     </div>
-
-    <div class="col-md-6">
-      <h2>Habitat</h2>
-      <p>
-        Il nostro zoo offre una vasta gamma di habitat per ospitare le diverse
-        specie. Ecco alcuni dei nostri habitat principali:
-      </p>
-      <ul class="listOne">
-        <li>
-          Foresta Tropicale: un ambiente lussureggiante e umido adatto a molte
-          specie di uccelli e mammiferi.
-        </li>
-        <li>
-          Savana Africana: vasti spazi aperti ideali per grandi erbivori come
-          zebre e giraffe.
-        </li>
-        <li>
-          Laguna Tropicale: un ambiente acquatico perfetto per animali come i
-          fenicotteri e le tartarughe.
-        </li>
-        <li>
-          Deserto: un habitat arido e caldo che ospita animali adattati alle
-          condizioni estreme come i cammelli e i rettili.
-        </li>
-        <li>
-          Foresta Temperata: un'area boschiva con clima moderato che sostiene
-          una grande varietà di specie arboree e animali.
-        </li>
-        <li>
-          Montagne: habitat montano con pendii rocciosi e foreste alpine,
-          popolato da animali come le aquile e le marmotte.
-        </li>
-      </ul>
+    <div class="carousel-item">
+      <img
+        src="https://images.pexels.com/photos/46324/pexels-photo-46324.jpeg?auto=compress&cs=tinysrgb&w=600"
+        class="img d-block w-100"
+        alt="Kenburns image"
+      />
     </div>
+    <div class="carousel-item">
+      <img
+        src="https://images.pexels.com/photos/1266446/pexels-photo-1266446.jpeg?auto=compress&cs=tinysrgb&w=600"
+        class="img d-block w-100"
+        alt="Kenburns image"
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://images.pexels.com/photos/3567166/pexels-photo-3567166.jpeg?auto=compress&cs=tinysrgb&w=600"
+        class="img d-block w-100"
+        alt="Kenburns image"
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://images.pexels.com/photos/19160417/pexels-photo-19160417/free-photo-of-nashorn.jpeg?auto=compress&cs=tinysrgb&w=600"
+        class="img d-block w-100"
+        alt="Kenburns image"
+      />
+    </div>
+  </div>
+  <div class="div">
+    <h1>Goditi ogni momento nel nostro selvaggio zoo</h1>
+    <p class="headP">
+      Immergiti nei nostri numerosi habitat presenti nel parco e scopri le
+      abitudini dei nostri amici
+    </p>
+  </div>
+  <div class="div2 d-flex justify-content-center align-items-center">
+    <a href="https://www.youtube.com/watch?v=my2XqUEN0fA" target="_blank">
+      <img
+        src="../../../assets/svgAnimals/youtube-color-svgrepo-com.svg"
+        alt=""
+        width="55px"
+      />
+    </a>
+    <p class="yt-p ms-2 pt-3">Watch here!</p>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<section class="main p-3">
+  <div class="box-container">
+    <div class="row">
+      <div class="medium col-md-6">
+        <img
+          src="../../../assets/image/elefantiHabitat.jpg"
+          class="img-fluid"
+          alt="Habitat"
+        />
+      </div>
+      <div class="medium col-md-6 habitat">
+        <a class="text-decoration-none" [routerLink]="['/habitat']"
+          ><h2 class="titleHabitat">Habitat</h2></a
+        >
+        <p>
+          Il nostro zoo offre una vasta gamma di habitat per ospitare le diverse
+          specie. Ecco alcuni dei nostri habitat principali:
+        </p>
+        <ul class="listOne">
+          <li>
+            Foresta Tropicale: un ambiente lussureggiante e umido adatto a molte
+            specie di uccelli e mammiferi.
+          </li>
+          <li>
+            Savana Africana: vasti spazi aperti ideali per grandi erbivori come
+            zebre e giraffe.
+          </li>
+          <li>
+            Laguna Tropicale: un ambiente acquatico perfetto per animali come i
+            fenicotteri e le tartarughe.
+          </li>
+          <li>
+            Deserto: un habitat arido e caldo che ospita animali adattati alle
+            condizioni estreme come i cammelli e i rettili.
+          </li>
+          <li>
+            Foresta Temperata: un'area boschiva con clima moderato che sostiene
+            una grande varietà di specie arboree e animali.
+          </li>
+          <li>
+            Montagne: habitat montano con pendii rocciosi e foreste alpine,
+            popolato da animali come le aquile e le marmotte.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="box-container">
     <div class="row mt-5">
-      <div class="col-md-6">
-        <h2>Animali</h2>
+      <div class="medium col-md-6 animal">
+        <a class="text-decoration-none" [routerLink]="['/animal']"
+          ><h2 class="titleAnimal">Animali</h2></a
+        >
         <p>
           Il nostro zoo ospita una vasta varietà di animali provenienti da
           diverse parti del mondo. Ecco alcuni degli animali che potrai
@@ -86,7 +162,7 @@
         </ul>
       </div>
 
-      <div class="col-md-6">
+      <div class="medium col-md-6">
         <img
           src="../../../assets/image/pappagallo.jpg"
           class="img-fluid"
@@ -95,18 +171,4 @@
       </div>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-md-12">
-      <h2>Ultime novità</h2>
-      <p>Scopri le ultime aggiunte al nostro zoo:</p>
-      <ul class="listOne">
-        <li>
-          Pinguini: una nuova colonia di pinguini è arrivata al nostro zoo!
-        </li>
-        <li>
-          Tigri Bianche: ammira la rara bellezza di queste splendide creature.
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+</section>

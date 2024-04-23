@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ZooComponent } from './components/zoo/zoo.component';
 import { HabitatComponent } from './components/habitat/habitat.component';
 import { AnimalsComponent } from './components/animals/animals.component';
+import { ChessComponent } from './components/chess/chess.component';
 
 const routes: Route[] = [
   {
@@ -38,6 +39,10 @@ const routes: Route[] = [
   {
     path: 'animal',
     component: AnimalsComponent,
+  },
+  {
+    path: 'chess',
+    component: ChessComponent,
   },
   {
     path: '**',

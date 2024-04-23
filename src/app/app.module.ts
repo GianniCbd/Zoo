@@ -4,6 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { ZooComponent } from './components/zoo/zoo.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { IntroPageComponent } from './components/intro-page/intro-page.component';
+import { ChessComponent } from './components/chess/chess.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { IntroPageComponent } from './components/intro-page/intro-page.component
     ZooComponent,
     HomeComponent,
     IntroPageComponent,
+    ChessComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { IntroPageComponent } from './components/intro-page/intro-page.component
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    DragDropModule,
   ],
   providers: [
     {

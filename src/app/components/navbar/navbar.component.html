@@ -17,48 +17,26 @@
             >Home</a
           >
         </li>
-        <div class="centrale d-flex">
-          <li class="nav-item" *ngIf="utente">
-            <a
-              class="nav-link"
-              [routerLink]="['/animal']"
-              routerLinkActive="active"
-              >Animali</a
-            >
-          </li>
-          <li class="nav-item" *ngIf="utente">
-            <a
-              class="nav-link"
-              [routerLink]="['/habitat']"
-              routerLinkActive="active"
-              >Zone Faunistiche</a
-            >
-          </li>
+        <li class="nav-item" *ngIf="utente">
+          <a
+            class="nav-link"
+            [routerLink]="['/animal']"
+            routerLinkActive="active"
+            >Animali</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="utente">
+          <a
+            class="nav-link"
+            [routerLink]="['/habitat']"
+            routerLinkActive="active"
+            >Zone Faunistiche</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="utente">
+          <a class="nav-link" routerLinkActive="active">Area Personale</a>
+        </li>
 
-          <li class="nav-item dropdown" *ngIf="utente">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Lo zoo
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="/zoo">Zoo</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="/animal">Animali</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="/habitat">Habitat</a>
-              </li>
-            </ul>
-          </li>
-        </div>
         <li class="nav-item" *ngIf="!utente">
           <a
             class="nav-link"
@@ -89,9 +67,12 @@
       </ul>
     </div>
     <div>
-      <a class="dropdown-item" href="#" *ngIf="utente" (click)="logout()"
-        >Logout</a
-      >
+      <a class="dropdown-item me-3" href="#" *ngIf="utente" (click)="logout()"
+        ><img
+          src="../../../assets/svgAnimals/monkey-shape-svgrepo-com.svg"
+          alt=""
+          width="25px"
+      /></a>
     </div>
   </div>
 </nav>

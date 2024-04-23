@@ -1,0 +1,120 @@
+<div class="container text-center">
+  <div class="info-button mt-5 ps-4">
+    <button class="btn" (click)="toggleInfoPanel()">Lista scacchi</button>
+  </div>
+  <div class="info-button2 mt-5 ps-4">
+    <button class="btn" (click)="toggleInfoPanel2()">
+      Movimenti degli scacchi
+    </button>
+  </div>
+
+  <div class="center-table">
+    <table cdkDropListGroup>
+      <tr *ngFor="let r of [0, 1, 2, 3, 4, 5, 6, 7]">
+        <td
+          *ngFor="let c of [0, 1, 2, 3, 4, 5, 6, 7]"
+          [class.black]="(r % 2) + (c % 2) == 1"
+          [style.color]="getPieceColor(r, c)"
+          cdkDropList
+          (cdkDropListDropped)="move($event)"
+          [cdkDropListData]="{ row: r, col: c }"
+        >
+          <div class="piece" cdkDrag [cdkDragData]="{ row: r, col: c }">
+            <span class="chess-piece"> {{ displayPiece(r, c) }}</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="info-panel mt-5 p-5" [ngClass]="{ open: infoPanelOpen }">
+    <div class="pedoni mt-4">
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Pedone bianco <i class="bi bi-arrow-right"></i></p>
+        <p>🐑</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Pedone nero <i class="bi bi-arrow-right"></i></p>
+        <p>🐐</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Re bianco <i class="bi bi-arrow-right"></i></p>
+        <p>🦈</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Re nero <i class="bi bi-arrow-right"></i></p>
+        <p>🦁</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Regina bianca <i class="bi bi-arrow-right"></i></p>
+        <p>🦢</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Regina nera <i class="bi bi-arrow-right"></i></p>
+        <p>🦚</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Torre bianca <i class="bi bi-arrow-right"></i></p>
+        <p>🦏</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Torre nera <i class="bi bi-arrow-right"></i></p>
+        <p>🦍</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Cavallo bianco <i class="bi bi-arrow-right"></i></p>
+        <p>🐫</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Cavallo nero <i class="bi bi-arrow-right"></i></p>
+        <p>🐎</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Alfiere bianco <i class="bi bi-arrow-right"></i></p>
+        <p>🦥</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="me-1">Alfiere nero <i class="bi bi-arrow-right"></i></p>
+        <p>🦦</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="info-panel2 mt-5 p-5" [ngClass]="{ open: infoPanelOpen2 }">
+  <div class="mt-4">
+    <ul>
+      <li>
+        <strong>Re:</strong> Si muove di una casella in qualsiasi direzione.
+      </li>
+      <li>
+        <strong>Regina (Dama):</strong> Si muove lungo file, colonne o diagonali
+        in qualsiasi direzione.
+      </li>
+      <li>
+        <strong>Torre:</strong> Si muove lungo le file o le colonne in qualsiasi
+        direzione.
+      </li>
+      <li>
+        <strong>Alfiere:</strong> Si muove lungo le diagonali in qualsiasi
+        direzione.
+      </li>
+      <li>
+        <strong>Cavallo:</strong> Si muove in un movimento a "L": due caselle in
+        una direzione e una in direzione perpendicolare.
+      </li>
+      <li>
+        <strong>Pedone:</strong> Si muove in avanti di una casella, ma nella sua
+        prima mossa può avanzare di due caselle.
+      </li>
+      <li>
+        <strong>En passant:</strong> Regola speciale dei pedoni per catturare un
+        pedone avversario.
+      </li>
+      <li>
+        <strong>Arrocco:</strong> Mossa che coinvolge il re e una torre dello
+        stesso colore per proteggere il re.
+      </li>
+    </ul>
+  </div>
+</div>
