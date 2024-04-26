@@ -15,11 +15,13 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
   color: #333;
   text-align: center;
   color: #39c459;
 }
+
 p {
   line-height: 1.8;
   margin-bottom: 15px;
@@ -27,4 +29,4 @@ p {
 
 strong {
   color: #39c459;
-}
+}/*# sourceMappingURL=zoo.component.css.map */

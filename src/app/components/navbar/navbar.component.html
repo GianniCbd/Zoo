@@ -37,6 +37,44 @@
           <a class="nav-link" routerLinkActive="active">Area Personale</a>
         </li>
 
+        <li class="nav-item" *ngIf="utente">
+          <div class="dropdown">
+            <button
+              class="btn btn-default dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              ParkZooWeb
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div class="droplink d-flex justify-content-between">
+                <div class="link">
+                  <h6 class="fw-bolder">A proposito di noi</h6>
+                  <li [routerLink]="['/zoo']">Storia</li>
+                  <li [routerLink]="['/mission']">Mission</li>
+                  <li>Aziende Partner</li>
+                </div>
+                <div class="link">
+                  <h6 class="fw-bolder">Contatti</h6>
+                  <li>Contatti</li>
+                  <li>Richieste commerciali</li>
+                  <li>Lavora con noi</li>
+                </div>
+                <div class="link">
+                  <h6 class="fw-bolder">Aziende e turismo</h6>
+                  <li>Esperienze esclusive</li>
+                  <li>Proposte per il tuo business</li>
+                  <li>Biglietti business</li>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </li>
+
         <li class="nav-item" *ngIf="!utente">
           <a
             class="nav-link"

@@ -1,0 +1,35 @@
+.header {
+  background-image: url(https://images.pexels.com/photos/5036667/pexels-photo-5036667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 85%;
+  width: 100%;
+  position: relative;
+}
+
+h6 {
+  line-height: 1.7;
+}
+
+h2 {
+  color: #333;
+  margin-top: 0;
+}
+hr {
+  border: 3px solid #134902;
+  margin: 20px 20px;
+}
+
+p {
+  line-height: 1.7;
+}
+
+article {
+  line-height: 1.7;
+}
+
+strong,
+h2,
+h3 {
+  color: #39c459;
+}

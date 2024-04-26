@@ -12,22 +12,20 @@ export class LikeService {
 
   constructor(private http: HttpClient) {}
 
-  like(animalId: number, data: Partial<Like>): Observable<Like> {
-    const params = new HttpParams().set('animalId', animalId.toString());
-    return this.http.post<Like>(`${this.apiUrl}/likes`, data, { params });
+  like(animalId: number, like: Like): Observable<any> {
+    const url = `${this.apiUrl}/likes?animalId=${animalId}`;
+    return this.http.post(url, like);
   }
 
   deleteLike(userId: string, title: string, id: number): Observable<void> {
-    const params = new HttpParams()
-      .set('userId', userId)
-      .set('id', id.toString());
-    return this.http.delete<void>(`${this.apiUrl}/likes/delete/${title}`, {
-      params,
-    });
+    return this.http.delete<void>(
+      `${this.apiUrl}/likes/delete/${title}?userId=${userId}&id=${id}`
+    );
   }
 
-  getlike(userId: string, id: number): Observable<Like> {
-    const params = new HttpParams().set('userId', userId);
-    return this.http.get<Like>(`${this.apiUrl}/likes/user/${id}`, { params });
+  getMyLike(userId: string, likeId: number): Observable<Like> {
+    return this.http.get<Like>(
+      `${this.apiUrl}/likes/user/${likeId}?userId=${userId}`
+    );
   }
 }

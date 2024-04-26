@@ -5,18 +5,14 @@
   width: 100%;
   z-index: 10;
   transition: background-color 0.3s ease-in-out;
-  background-image: radial-gradient(
-    circle at center left,
-    rgb(163, 215, 149),
-    rgb(51, 195, 85)
-  );
+  background-image: radial-gradient(circle at center left, rgb(163, 215, 149), rgb(51, 195, 85));
 }
 
 .nav-link {
   transition: transform 0.2s ease-in-out;
-  &:hover {
-    transform: scale(1.1);
-  }
+}
+.nav-link:hover {
+  transform: scale(1.1);
 }
 
 .navbar-brand {
@@ -24,14 +20,13 @@
   padding: 7px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-
-  span {
-    margin-left: 3px;
-    background-color: rgb(71, 167, 165);
-    border-radius: 10%;
-    color: black;
-    padding: 5px;
-  }
+}
+.navbar-brand span {
+  margin-left: 3px;
+  background-color: rgb(71, 167, 165);
+  border-radius: 10%;
+  color: black;
+  padding: 5px;
 }
 
 .nav-link,
@@ -51,4 +46,4 @@
 
 .dropdown-menu .droplink .link {
   width: 15rem;
-}
+}/*# sourceMappingURL=navbar.component.css.map */

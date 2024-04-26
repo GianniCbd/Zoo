@@ -1,25 +1,7 @@
-<div class="container pt-5">
+<!-- <div class="container pt-5">
   <div class="row">
-    <button
-      id="addButton"
-      class="btn button-85 my-5"
-      (click)="toggleModalVisibility()"
-      *ngIf="canShowButton()"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="50"
-        height="50"
-        fill="currentColor"
-        class="bi bi-patch-plus-fill"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zM8.5 6v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0"
-        />
-      </svg>
-    </button>
-    <div class="col-sm-12 col-md-4 col-lg-3" *ngFor="let animal of animal">
+  
+    <div class="col-sm-12 col-md-4 col-lg-3 mt-2" *ngFor="let animal of animal">
       <div class="card mb-4">
         <img
           [src]="animal.image"
@@ -55,16 +37,60 @@
             </div>
           </div>
         </div>
+       
+      </div>
+    </div> -->
+<div class="container pt-5 mt-5">
+  <button
+    id="addButton"
+    class="btn button-85 my-5"
+    (click)="toggleModalVisibility()"
+    *ngIf="canShowButton()"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="50"
+      height="50"
+      fill="white"
+      class="bi bi-patch-plus-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zM8.5 6v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0"
+      />
+    </svg>
+  </button>
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-3 mt-2" *ngFor="let animal of animal">
+      <div class="card mb-4">
+        <img
+          [src]="animal.image"
+          class="card-img-top"
+          alt="Animal Image"
+          height="200px"
+          (click)="viewAnimalDetails(animal.id)"
+          style="cursor: pointer"
+        />
+
+        <span
+          class="badge text-bg-danger position-absolute"
+          style="top: 10px; right: 10px"
+          >{{ animal.habitat.name }}</span
+        >
+
+        <div class="card-content">
+          <h2 class="card-title text-center">{{ animal.name }}</h2>
+        </div>
         <div class="d-flex justify-content-between">
           <button
-            class="btn btn-secondary m-1"
+            class="btnMod btn-secondary m-1"
             (click)="editAnimal(animal)"
             *ngIf="canShowButton()"
           >
             Modifica
           </button>
           <button
-            class="btn btn-dark m-1"
+            class="btnMod btn-dark m-1"
             (click)="deleteAnimal(animal)"
             *ngIf="canShowButton()"
           >
@@ -73,112 +99,132 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- edit -->
-    <div
-      class="modal-container col-8 col-sm-8 col-md-5 col-lg-5"
-      *ngIf="editingAnimal"
-    >
-      <div class="modal-content">
-        <div class="modal-body text-white fw-semibold">
-          <h5 class="modal-title">Modifica Animale</h5>
-          <form>
-            <div class="form-group">
-              <label for="editName">Nome animale</label>
-              <input
-                type="text"
-                class="form-control"
-                id="editName"
-                name="editName"
-                [(ngModel)]="editingAnimal.name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="editSpecies">Specie</label>
-              <input
-                class="form-control"
-                id="editSpecies"
-                name="editSpecies"
-                rows="3"
-                [(ngModel)]="editingAnimal.species"
-              />
-            </div>
-            <div class="form-group">
-              <label for="editAge">Età</label>
-              <input
-                class="form-control"
-                id="editAge"
-                name="editAge"
-                rows="3"
-                [(ngModel)]="editingAnimal.age"
-              />
-            </div>
-            <div class="form-group">
-              <label for="editGender">Sesso</label>
-              <input
-                class="form-control"
-                id="editGender"
-                name="editGender"
-                rows="3"
-                [(ngModel)]="editingAnimal.gender"
-              />
-            </div>
-            <div class="form-group">
-              <label for="editHeight">Altezza</label>
-              <input
-                class="form-control"
-                id="editHeight"
-                name="editHeight"
-                rows="3"
-                [(ngModel)]="editingAnimal.height"
-              />
-            </div>
-            <div class="form-group">
-              <label for="editWeight">Peso</label>
-              <input
-                class="form-control"
-                id="editWeight"
-                name="editWeight"
-                rows="3"
-                [(ngModel)]="editingAnimal.weight"
-              />
-            </div>
-            <div class="form-group">
-              <label for="editFavFood">Cibo Preferito</label>
-              <input
-                class="form-control"
-                id="editFavFood"
-                name="editFavFood"
-                rows="3"
-                [(ngModel)]="editingAnimal.favFood"
-              />
-            </div>
-
-            <div class="form-group my-2">
-              <label for="editImage">Immagine</label>
-              <input
-                type="file"
-                class="form-control-file"
-                id="editImage"
-                name="editImage"
-                #fileInput
-                (change)="uploadFile($event)"
-              />
-            </div>
-          </form>
-          <div class="d-flex justify-content-between align-items">
-            <button class="btn btn-light" (click)="saveEditedAnimal()">
-              Salva
-            </button>
-            <button class="btn btn-light" (click)="cancelEdit()">
-              Annulla
-            </button>
-          </div>
+<!-- edit -->
+<div
+  class="modal-container col-8 col-sm-8 col-md-5 col-lg-5"
+  *ngIf="editingAnimal"
+>
+  <div class="modal-content">
+    <div class="modal-body text-dark fw-semibold">
+      <h5 class="modal-title">Modifica Animale</h5>
+      <form>
+        <div class="form-group">
+          <label for="editName">Nome animale</label>
+          <input
+            type="text"
+            class="form-control"
+            id="editName"
+            name="editName"
+            [(ngModel)]="editingAnimal.name"
+          />
         </div>
+        <div class="form-group">
+          <label for="editSpecies">Specie</label>
+          <input
+            class="form-control"
+            id="editSpecies"
+            name="editSpecies"
+            rows="3"
+            [(ngModel)]="editingAnimal.species"
+          />
+        </div>
+        <div class="form-group">
+          <label for="editAge">Età</label>
+          <input
+            class="form-control"
+            id="editAge"
+            name="editAge"
+            rows="3"
+            [(ngModel)]="editingAnimal.age"
+          />
+        </div>
+        <div class="form-group">
+          <label for="editGender">Sesso</label>
+          <input
+            class="form-control"
+            id="editGender"
+            name="editGender"
+            rows="3"
+            [(ngModel)]="editingAnimal.gender"
+          />
+        </div>
+        <div class="form-group">
+          <label for="editHeight">Altezza</label>
+          <input
+            class="form-control"
+            id="editHeight"
+            name="editHeight"
+            rows="3"
+            [(ngModel)]="editingAnimal.height"
+          />
+        </div>
+        <div class="form-group">
+          <label for="editWeight">Peso</label>
+          <input
+            class="form-control"
+            id="editWeight"
+            name="editWeight"
+            rows="3"
+            [(ngModel)]="editingAnimal.weight"
+          />
+        </div>
+        <div class="form-group">
+          <label for="editFavFood">Cibo Preferito</label>
+          <input
+            class="form-control"
+            id="editFavFood"
+            name="editFavFood"
+            rows="3"
+            [(ngModel)]="editingAnimal.favFood"
+          />
+        </div>
+        <div class="form-group">
+          <label for="editDistribution">Distribuzione</label>
+          <input
+            class="form-control"
+            id="editDistribution"
+            name="editDistribution"
+            rows="3"
+            [(ngModel)]="editingAnimal.distribution"
+          />
+        </div>
+        <div class="form-group">
+          <label for="editReproduction">Riproduzione</label>
+          <input
+            class="form-control"
+            id="editReproduction"
+            name="editReproduction"
+            rows="3"
+            [(ngModel)]="editingAnimal.reproduction"
+          />
+        </div>
+
+        <div class="form-group my-2">
+          <label for="editImage">Immagine</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="editImage"
+            name="editImage"
+            #fileInput
+            (change)="uploadFile($event)"
+          />
+        </div>
+      </form>
+      <div class="d-flex justify-content-between align-items">
+        <button class="btnMod btn-light" (click)="saveEditedAnimal()">
+          Salva
+        </button>
+        <button class="btnMod btn-light" (click)="cancelEdit()">Annulla</button>
       </div>
     </div>
   </div>
 </div>
+<!-- </div>
+</div> -->
 
 <!-- ADD -->
 <div
@@ -249,7 +295,7 @@
       <div class="form-group">
         <label for="weight">Peso</label>
         <input
-          type="number"
+          type="text"
           class="form-control"
           id="weight"
           name="weight"
@@ -260,11 +306,33 @@
       <div class="form-group">
         <label for="height">Altezza</label>
         <input
-          type="number"
+          type="text"
           class="form-control"
           id="height"
           name="height"
           [(ngModel)]="newAnimal.height"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="distribution">Distribuzione</label>
+        <input
+          type="text"
+          class="form-control"
+          id="distribution"
+          name="distribution"
+          [(ngModel)]="newAnimal.distribution"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="reproduction">Riproduzione</label>
+        <input
+          type="text"
+          class="form-control"
+          id="reproduction"
+          name="reproduction"
+          [(ngModel)]="newAnimal.reproduction"
           required
         />
       </div>
@@ -284,10 +352,10 @@
       </div>
 
       <div class="d-flex justify-content-between align-item mt-3">
-        <button class="btn btn-secondary" (click)="addNewAnimal()">
+        <button class="btnMod btn-secondary" (click)="addNewAnimal()">
           Aggiungi
         </button>
-        <button class="btn btn-dark" (click)="close()">chiudi</button>
+        <button class="btnMod btn-dark" (click)="close()">chiudi</button>
       </div>
     </div>
   </div>

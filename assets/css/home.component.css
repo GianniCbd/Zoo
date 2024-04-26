@@ -1,0 +1,137 @@
+.custom-carousel .img {
+  height: 45rem;
+  animation: kenburns-top 8s ease-in-out infinite alternate;
+  width: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0;
+  height: 50%;
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.div {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #eaecea;
+}
+
+.div2 {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  transform: translateX(-80%);
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: white;
+}
+
+.div2:hover .yt-p {
+  transform: scale(1.1);
+  color: #3bc45a;
+}
+
+.div h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.div h1:hover,
+.headP:hover {
+  transform: scale(1.1);
+  color: #3bc45a;
+}
+
+.div p {
+  letter-spacing: 2px;
+  font-size: 1.6rem;
+}
+
+.btn {
+  border-radius: 20px;
+  background-color: rgb(4, 104, 3);
+  color: white;
+  font-size: 18px;
+}
+@keyframes kenburns-top {
+  0% {
+    transform: scale(1) translateY(0);
+    transform-origin: 50% 16%;
+  }
+  100% {
+    transform: scale(1.25) translateY(-15px);
+    transform-origin: top;
+  }
+}
+.box-container .img-fluid {
+  padding-top: 4rem;
+  border-radius: 79% 51% 81% 19%;
+}
+
+.box-container .row .h1 {
+  font-size: 2.7rem;
+  font-weight: 600;
+  padding-bottom: 2rem;
+}
+
+.box-container .row p {
+  font-size: 1.7rem;
+  line-height: 1.7;
+}
+
+.box-container .row .box-container .row .medium h2 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2.4rem;
+  line-height: 1.4;
+}
+
+.medium {
+  margin-bottom: 4rem;
+  padding: 0%;
+}
+
+.medium,
+.habitat,
+.animal {
+  background-color: #eaecea;
+  padding: 2rem;
+  color: #986820;
+}
+
+.titleHabitat,
+.titleAnimal {
+  color: #986820;
+}
+
+.medium p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.listOne {
+  list-style: none;
+}
+.listOne li {
+  font-size: 1.1rem;
+  font-style: oblique;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+  .medium {
+    background-color: transparent;
+  }
+  .animal,
+  .habitat {
+    background-color: rgba(58, 196, 88, 0.4901960784);
+    padding: 2rem;
+  }
+}/*# sourceMappingURL=home.component.css.map */

@@ -57,13 +57,7 @@ export class AnimalService {
   }
 
   getCountAnimalsByHabitat(): Observable<Object[]> {
-    const url = `${this.apiUrl}/animals/countByHabitat`;
-    return this.http.get<Object[]>(url);
-  }
-
-  getAnimalsGroupedByHabitat(): Observable<any> {
-    const url = `${this.apiUrl}/animals/groupedByHabitat`;
-    return this.http.get<Animal[]>(url);
+    return this.http.get<Object[]>(`${this.apiUrl}/animals/countByHabitat`);
   }
 
   private getAccessToken(): string {

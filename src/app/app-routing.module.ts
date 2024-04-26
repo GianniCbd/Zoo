@@ -8,6 +8,9 @@ import { ZooComponent } from './components/zoo/zoo.component';
 import { HabitatComponent } from './components/habitat/habitat.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { ChessComponent } from './components/chess/chess.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
+import { MissionComponent } from './components/mission/mission.component';
 
 const routes: Route[] = [
   {
@@ -31,6 +34,10 @@ const routes: Route[] = [
     component: ZooComponent,
   },
   {
+    path: 'mission',
+    component: MissionComponent,
+  },
+  {
     path: 'habitat',
     component: HabitatComponent,
   },
@@ -41,8 +48,16 @@ const routes: Route[] = [
     component: AnimalsComponent,
   },
   {
+    path: 'animal/:id',
+    component: AnimalDetailsComponent,
+  },
+  {
     path: 'chess',
     component: ChessComponent,
+  },
+  {
+    path: 'quiz',
+    component: QuizComponent,
   },
   {
     path: '**',

@@ -1,0 +1,22 @@
+<div class="container text-center" *ngIf="animalQuestions.length > 0">
+  <div>
+    <h3>{{ animalQuestions[currentQuestionIndex].question }}</h3>
+    <div class="button-grid">
+      <div
+        class="button-grid-item"
+        *ngFor="
+          let answer of animalQuestions[currentQuestionIndex].answers;
+          let i = index
+        "
+      >
+        <button
+          class="btn btn-success mb-1"
+          (click)="selectAnswer(answer, currentQuestionIndex)"
+        >
+          {{ answer }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-dark" (click)="submitQuiz()">Invia</button>
+</div>

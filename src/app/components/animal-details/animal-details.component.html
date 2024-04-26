@@ -1,0 +1,141 @@
+<div class="container" *ngIf="animal">
+  <div class="box-container" *ngIf="activeTab === 'generalInfo'">
+    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
+    <h2 class="animalName">{{ animal.name }}</h2>
+    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
+  </div>
+  <div class="box-container" *ngIf="activeTab === 'diet'">
+    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
+    <h2 class="animalName">{{ animal.name }}</h2>
+    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
+  </div>
+  <div class="box-container" *ngIf="activeTab === 'distribution'">
+    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
+    <h2 class="animalName">{{ animal.name }}</h2>
+    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
+  </div>
+  <div class="box-container" *ngIf="activeTab === 'reproduction'">
+    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
+    <h2 class="animalName">{{ animal.name }}</h2>
+    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
+  </div>
+
+  <ul class="nav d-flex justify-content-between" role="tablist" id="tabMenu">
+    <!-- Tab per schermi larghi -->
+    <li role="presentation" [ngClass]="{ active: activeTab === 'generalInfo' }">
+      <a (click)="changeTab('generalInfo')">Informazioni generali</a>
+    </li>
+    <li role="presentation" [ngClass]="{ active: activeTab === 'diet' }">
+      <a (click)="changeTab('diet')">Dieta</a>
+    </li>
+    <li
+      role="presentation"
+      [ngClass]="{ active: activeTab === 'distribution' }"
+    >
+      <a (click)="changeTab('distribution')"
+        >Distribuzione e Stato di conservazione</a
+      >
+    </li>
+    <li
+      role="presentation"
+      [ngClass]="{ active: activeTab === 'reproduction' }"
+    >
+      <a (click)="changeTab('reproduction')">Riproduzione</a>
+    </li>
+  </ul>
+
+  <div class="dropdown d-block d-md-none">
+    <button
+      class="btn btn-default dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton"
+      data-bs-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Seleziona una categoria
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li [ngClass]="{ active: activeTab === 'generalInfo' }">
+        <a (click)="changeTab('generalInfo')">Informazioni generali</a>
+      </li>
+      <li [ngClass]="{ active: activeTab === 'diet' }">
+        <a (click)="changeTab('diet')">Dieta</a>
+      </li>
+      <li [ngClass]="{ active: activeTab === 'distribution' }">
+        <a (click)="changeTab('distribution')"
+          >Distribuzione e Stato di conservazione</a
+        >
+      </li>
+      <li [ngClass]="{ active: activeTab === 'reproduction' }">
+        <a (click)="changeTab('reproduction')">Riproduzione</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content p-3">
+    <div
+      role="tabpanel"
+      class="tab-pane"
+      [ngClass]="{ active: activeTab === 'generalInfo' }"
+    >
+      <!-- Contenuto per le informazioni generali -->
+      <h6 class="mt-3 text-start"></h6>
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6"><strong>Età:</strong></div>
+        <div class="g-col-md-6 ms-2">{{ animal.age }}</div>
+      </div>
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6"><strong>Sesso:</strong></div>
+        <div class="g-col-md-6 ms-2">{{ animal.gender }}</div>
+      </div>
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6"><strong>Peso:</strong></div>
+        <div class="g-col-md-6 ms-2">{{ animal.weight }}</div>
+      </div>
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6"><strong>Altezza:</strong></div>
+        <div class="g-col-md-6 ms-2">{{ animal.height }}</div>
+      </div>
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6"><strong>Habitat naturale: </strong></div>
+        <div class="g-col-md-6 ms-2">{{ animal.habitat.type }}</div>
+      </div>
+    </div>
+    <div
+      role="tabpanel"
+      class="tab-pane"
+      [ngClass]="{ active: activeTab === 'diet' }"
+    >
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6"><strong>Alimentazione</strong></div>
+        <div class="g-col-md-6 ms-2">{{ animal.favFood }}</div>
+      </div>
+    </div>
+    <div
+      role="tabpanel"
+      class="tab-pane"
+      [ngClass]="{ active: activeTab === 'distribution' }"
+    >
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6">
+          <strong>Distribuzione:</strong>
+        </div>
+        <div class="g-col-md-6 ms-2">{{ animal.distribution }}</div>
+      </div>
+    </div>
+    <div
+      role="tabpanel"
+      class="tab-pane"
+      [ngClass]="{ active: activeTab === 'reproduction' }"
+    >
+      <div class="grid text-center mt-3 d-flex">
+        <div class="g-col-md-6">
+          <strong>Riproduzione:</strong>
+        </div>
+        <div class="g-col-md-6 ms-2">{{ animal.reproduction }}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,11 +6,16 @@ import {
   AfterViewInit,
   ElementRef,
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth/auth.service';
 import { Animal } from 'src/app/models/animal';
 import { Habitat } from 'src/app/models/habitat';
+import { Like } from 'src/app/models/like';
+import { User } from 'src/app/models/user';
 import { AnimalService } from 'src/app/service/animal.service';
 import { AuthorizationService } from 'src/app/service/authorization.service';
 import { HabitatService } from 'src/app/service/habitat.service';
+import { LikeService } from 'src/app/service/like.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -20,23 +25,37 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class AnimalsComponent implements OnInit {
   animal: Animal[] = [];
-  habitats: Habitat[] = [];
+  habitats: any[] = [];
+
   newAnimal: any = {};
   userId!: string;
   editingAnimal: any = null;
   showAddModal: boolean = false;
   showEditModal: boolean = false;
+  currentUser!: User;
 
   constructor(
     private animalSrv: AnimalService,
     private userService: UserService,
     private authorizationSRV: AuthorizationService,
-    private habitatSrv: HabitatService
+    private habitatSrv: HabitatService,
+    private authSrv: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.fetchAnimals();
     this.fetchHabitats();
+  }
+
+  viewAnimalDetails(animal: number) {
+    this.router.navigate(['/animal', animal]);
+  }
+
+  getme() {
+    this.authSrv.getMe().subscribe((it) => {
+      this.currentUser = it;
+    });
   }
 
   canShowButton(): boolean {
@@ -72,7 +91,13 @@ export class AnimalsComponent implements OnInit {
   fetchAnimals() {
     this.animalSrv.getAnimals().subscribe(
       (data) => {
-        this.animal = data;
+        this.animal = data.sort((a, b) =>
+          a.habitat.name > b.habitat.name
+            ? 1
+            : b.habitat.name > a.habitat.name
+            ? -1
+            : 0
+        );
         console.log(data);
       },
       (error) => {
@@ -85,7 +110,6 @@ export class AnimalsComponent implements OnInit {
     this.userService.getCurrentUser().subscribe(
       (user) => {
         const userId = user.id;
-        console.log('userId:', userId);
         this.animalSrv.newAnimal(this.newAnimal, userId).subscribe(
           (createdAnimal) => {
             this.newAnimal = {};

@@ -1,0 +1,23 @@
+.container {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  background-color: rgba(169, 169, 169, 0.503);
+  max-width: 100%;
+}
+
+.btn {
+  margin-top: 2rem;
+  border-radius: 20px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-grid-item {
+  text-align: center;
+}

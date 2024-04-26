@@ -20,6 +20,9 @@ import { HomeComponent } from './components/home/home.component';
 
 import { IntroPageComponent } from './components/intro-page/intro-page.component';
 import { ChessComponent } from './components/chess/chess.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
+import { MissionComponent } from './components/mission/mission.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { ChessComponent } from './components/chess/chess.component';
     HomeComponent,
     IntroPageComponent,
     ChessComponent,
+    QuizComponent,
+    AnimalDetailsComponent,
+    MissionComponent,
   ],
   imports: [
     BrowserModule,
