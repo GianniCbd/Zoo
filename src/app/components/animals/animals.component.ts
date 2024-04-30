@@ -9,13 +9,11 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth/auth.service';
 import { Animal } from 'src/app/models/animal';
-import { Habitat } from 'src/app/models/habitat';
-import { Like } from 'src/app/models/like';
+
 import { User } from 'src/app/models/user';
 import { AnimalService } from 'src/app/service/animal.service';
 import { AuthorizationService } from 'src/app/service/authorization.service';
 import { HabitatService } from 'src/app/service/habitat.service';
-import { LikeService } from 'src/app/service/like.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({

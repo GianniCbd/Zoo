@@ -23,6 +23,7 @@ import { ChessComponent } from './components/chess/chess.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
 import { MissionComponent } from './components/mission/mission.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MissionComponent } from './components/mission/mission.component';
     QuizComponent,
     AnimalDetailsComponent,
     MissionComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
