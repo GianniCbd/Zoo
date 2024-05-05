@@ -27,153 +27,156 @@
 
   <div class="mt-5 pt-5" *ngFor="let card of cards">
     <div class="card">
+      <div class="dropdown position-absolute" style="top: 0; right: 0">
+        <button
+          class="btnD dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="3"
+            height="16"
+            viewBox="0 0 3 16"
+          >
+            <circle cx="1.5" cy="1.5" r="1.5" />
+            <circle cx="1.5" cy="7.999" r="1.5" />
+            <circle cx="1.5" cy="14.5" r="1.5" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li>
+            <a class="dropdown-item" (click)="deleteCard(card.id)">Elimina</a>
+          </li>
+        </ul>
+      </div>
       <div class="card-header">
         <h2>{{ card.fullName }}</h2>
       </div>
       <div class="card-body">
         <p><strong>Card:</strong> {{ card.cardType }}</p>
         <p><strong>Card Number:</strong> {{ card.cardNumber }}</p>
-        <p><strong>Amount:</strong> {{ card.amount }}</p>
         <p><strong>Expired:</strong> {{ card.expired }}</p>
-      </div>
-      <div class="card-footer">
-        <button
-          class="btn"
-          (click)="deleteCard(card.id)"
-          *ngIf="canShowButton()"
-        >
-          Delete
-        </button>
-        <button class="btn" (click)="makePayment(card.id, card.amount)">
-          Paga
-        </button>
       </div>
     </div>
   </div>
-</div>
-<!-- add card -->
 
-<div
-  class="modal-container col-8 col-sm-8 col-md-5 col-lg-5"
-  *ngIf="addNewCard"
->
-  <div class="modal-content" *ngIf="showAddModal">
-    <div class="modal-body fw-semibold">
-      <h5 class="modal-title fw-semibold text-center">Inserisci dati</h5>
+  <!-- add card -->
 
-      <div class="form-group">
-        <label for="fullName">Nome e Cognome</label>
-        <input
-          type="text"
-          class="form-control"
-          id="fullName"
-          name="fullName"
-          [(ngModel)]="newCard.fullName"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="Carta">Carta di pagamento</label>
-        <div
-          class="card-list d-flex justify-content-between align-items-center"
-        >
-          <img
-            src="../../../assets/svgcrad/visa-electron-svgrepo-com.svg"
-            alt="Visa"
-            class="card-image"
-            width="50px"
-            (click)="selectCard('VISA')"
-            [ngClass]="{ selected: newCard.cardType === 'VISA' }"
-          />
-          <img
-            src="../../../assets/svgcrad/mastercard-id-check-svgrepo-com.svg"
-            alt="Mastercard"
-            class="card-image"
-            width="50px"
-            (click)="selectCard('MASTERCARD')"
-            [ngClass]="{ selected: newCard.cardType === 'MASTERCARD' }"
-          />
-          <img
-            src="../../../assets/svgcrad/bitcoin-svgrepo-com.svg"
-            alt="Bitcoin"
-            class="card-image"
-            width="50px"
-            (click)="selectCard('BITCOIN')"
-            [ngClass]="{ selected: newCard.cardType === 'BITCOIN' }"
-          />
-          <img
-            src="../../../assets/svgcrad/google-pay-svgrepo-com.svg"
-            alt="Google Pay"
-            class="card-image"
-            width="50px"
-            (click)="selectCard('GOOGLE_PAY')"
-            [ngClass]="{ selected: newCard.cardType === 'GOOGLE_PAY' }"
-          />
-          <img
-            src="../../../assets/svgcrad/apple-pay-svgrepo-com.svg"
-            alt="Apple Pay"
-            class="card-image"
-            width="50px"
-            (click)="selectCard('APPLE_PAY')"
-            [ngClass]="{ selected: newCard.cardType === 'APPLE_PAY' }"
-          />
-          <img
-            src="../../../assets/svgcrad/american-express-logo-svgrepo-com.svg"
-            alt="American Express"
-            class="card-image"
-            width="50px"
-            (click)="selectCard('AMERICAN_EXPRESS')"
-            [ngClass]="{ selected: newCard.cardType === 'AMERICAN_EXPRESS' }"
+  <div
+    class="modal-container col-8 col-sm-8 col-md-5 col-lg-5"
+    *ngIf="addNewCard"
+  >
+    <div class="modal-content" *ngIf="showAddModal">
+      <div class="modal-body fw-semibold">
+        <h5 class="modal-title fw-semibold text-center">Inserisci dati</h5>
+
+        <div class="form-group">
+          <label for="fullName">Nome e Cognome</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="">First and last name</span>
+            </div>
+            <input type="text" class="form-control" />
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Carta">Metodo di pagamento</label>
+          <div
+            class="card-list d-flex justify-content-between align-items-center"
+          >
+            <img
+              src="../../../assets/svgcrad/visa-electron-svgrepo-com.svg"
+              alt="Visa"
+              class="card-image"
+              width="50px"
+              (click)="selectCard('VISA')"
+              [ngClass]="{ selected: newCard.cardType === 'VISA' }"
+            />
+            <img
+              src="../../../assets/svgcrad/mastercard-id-check-svgrepo-com.svg"
+              alt="Mastercard"
+              class="card-image"
+              width="50px"
+              (click)="selectCard('MASTERCARD')"
+              [ngClass]="{ selected: newCard.cardType === 'MASTERCARD' }"
+            />
+            <img
+              src="../../../assets/svgcrad/bitcoin-svgrepo-com.svg"
+              alt="Bitcoin"
+              class="card-image"
+              width="50px"
+              (click)="selectCard('BITCOIN')"
+              [ngClass]="{ selected: newCard.cardType === 'BITCOIN' }"
+            />
+            <img
+              src="../../../assets/svgcrad/google-pay-svgrepo-com.svg"
+              alt="Google Pay"
+              class="card-image"
+              width="50px"
+              (click)="selectCard('GOOGLE_PAY')"
+              [ngClass]="{ selected: newCard.cardType === 'GOOGLE_PAY' }"
+            />
+            <img
+              src="../../../assets/svgcrad/apple-pay-svgrepo-com.svg"
+              alt="Apple Pay"
+              class="card-image"
+              width="50px"
+              (click)="selectCard('APPLE_PAY')"
+              [ngClass]="{ selected: newCard.cardType === 'APPLE_PAY' }"
+            />
+            <img
+              src="../../../assets/svgcrad/american-express-logo-svgrepo-com.svg"
+              alt="American Express"
+              class="card-image"
+              width="50px"
+              (click)="selectCard('AMERICAN_EXPRESS')"
+              [ngClass]="{ selected: newCard.cardType === 'AMERICAN_EXPRESS' }"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cardNumber">Numero carta</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cardNumber"
+            name="cardNumber"
+            [(ngModel)]="newCard.cardNumber"
+            (ngModelChange)="newCard.cardNumber = formatCardNumber($event)"
+            required
           />
         </div>
-      </div>
-      <div class="form-group">
-        <label for="amount">Importo</label>
-        <input
-          type="number"
-          class="form-control"
-          id="amount"
-          name="amount"
-          [(ngModel)]="newCard.amount"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="cardNumber">Numero carta</label>
-        <input
-          type="text"
-          class="form-control"
-          id="cardNumber"
-          name="cardNumber"
-          [(ngModel)]="newCard.cardNumber"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="expired">Scadenza</label>
-        <input
-          type="date"
-          class="form-control"
-          id="expired"
-          name="expired"
-          [(ngModel)]="newCard.expired"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="Cvv">Cvv</label>
-        <input
-          type="number"
-          class="form-control"
-          id="Cvv"
-          name="Cvv"
-          [(ngModel)]="newCard.cvv"
-          required
-        />
-      </div>
-      <div class="d-flex justify-content-between align-item mt-3">
-        <button class="btn btnMod" (click)="addNewCard()">Aggiungi</button>
-        <button class="btn btnMod" (click)="close()">chiudi</button>
+        <div class="form-group">
+          <label for="expired">Scadenza</label>
+          <input
+            type="date"
+            class="form-control"
+            id="expired"
+            name="expired"
+            [(ngModel)]="newCard.expired"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="Cvv">Cvv</label>
+          <input
+            type="number"
+            class="form-control"
+            id="Cvv"
+            name="Cvv"
+            [(ngModel)]="newCard.cvv"
+            required
+          />
+        </div>
+        <div class="d-flex justify-content-between align-item mt-3">
+          <button class="btn btnMod" (click)="addNewCard()">Aggiungi</button>
+          <button class="btn btnMod" (click)="close()">chiudi</button>
+        </div>
       </div>
     </div>
   </div>

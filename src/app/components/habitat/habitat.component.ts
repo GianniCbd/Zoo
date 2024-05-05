@@ -11,7 +11,6 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class HabitatComponent implements OnInit {
   habitats: Habitat[] = [];
-  userId!: string;
   newHabitat: any = {};
   editingHabitat: any = null;
   showAddModal: boolean = false;

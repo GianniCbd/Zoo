@@ -40,12 +40,9 @@ export class CardService {
       headers,
     });
   }
-
-  makePayment(cardId: string, amount: number): Observable<any> {
-    const url = `${this.apiUrl}/card/${cardId}/payments`;
-    const body = { amount: amount };
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(url, body, { headers: headers });
+  // card update creata in aeroporto senza wifi...controllare funzionamento
+  updateCard(id: number, cards: any): Observable<Card> {
+    return this.http.put<Card>(`${this.apiUrl}/card/${id}`, cards);
   }
 
   deleteCard(id: string): Observable<void> {

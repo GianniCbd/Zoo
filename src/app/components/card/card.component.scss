@@ -30,12 +30,12 @@
 }
 
 .card-image {
-  margin-right: 0.5rem; /* Riduco il margine tra le immagini */
-  padding: 0.5rem; /* Riduco il padding delle immagini */
+  margin-right: 0.5rem;
+  padding: 0.5rem;
   border: 1px solid black;
   cursor: pointer;
-  max-width: 100%; /* Assicuro che le immagini non superino la larghezza del loro contenitore */
-  height: auto; /* Imposto l'altezza automaticamente per mantenere le proporzioni originali */
+  max-width: 100%;
+  height: auto;
 }
 
 .modal-container {
@@ -97,4 +97,14 @@
   background-color: rgb(4, 104, 3);
   color: white;
   font-size: 18px;
+}
+
+.btnD {
+  background-color: transparent;
+  border: none;
+  width: 15px;
+  padding-right: 0.6rem;
+}
+.dropdown-toggle::after {
+  display: none;
 }

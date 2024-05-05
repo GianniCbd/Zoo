@@ -1,0 +1,29 @@
+.card {
+  width: calc(100% - 20px);
+  max-width: 400px;
+  margin: 10px auto;
+  border-radius: 0;
+  overflow: hidden;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card .card-img-top {
+  width: 100%;
+
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  padding: 0;
+  color: #555;
+}

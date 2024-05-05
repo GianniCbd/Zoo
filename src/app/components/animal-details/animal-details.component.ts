@@ -13,6 +13,12 @@ import { HabitatService } from 'src/app/service/habitat.service';
 export class AnimalDetailsComponent implements OnInit {
   animal: Animal | undefined;
   activeTab: string = 'generalInfo';
+  tabs = [
+    { key: 'generalInfo', label: 'Informazioni generali' },
+    { key: 'diet', label: 'Dieta' },
+    { key: 'distribution', label: 'Distribuzione' },
+    { key: 'reproduction', label: 'Riproduzione' },
+  ];
 
   constructor(
     private route: ActivatedRoute,

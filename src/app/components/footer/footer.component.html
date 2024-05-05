@@ -1,0 +1,73 @@
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <div class="d-flex align-items-baseline">
+        <img
+          src="../../../assets/svgAnimals/bear-pawprint-svgrepo-com.svg"
+          alt=""
+          width="30px"
+        />
+        <h3>Zoo</h3>
+      </div>
+
+      <p>Orari del nostro centralino.</p>
+      <p class="links"><i class="bi bi-calendar-check"></i> lunedì-venerdì</p>
+      <p class="days">7:00AM - 20:00PM</p>
+    </div>
+
+    <div class="box">
+      <h3>Contattaci</h3>
+      <a href="#" class="links"
+        ><i class="bi bi-telephone-fill"></i> 1234566789</a
+      >
+      <a href="#" class="links"
+        ><i class="bi bi-envelope-at-fill"></i> zoo@park.com</a
+      >
+      <a href="#" class="links"
+        ><i class="bi bi-geo-alt-fill"></i> Cagliari,Italy</a
+      >
+    </div>
+
+    <div class="box">
+      <h3>Link rapidi</h3>
+      <a
+        [routerLink]="['/intro']"
+        routerLinkActive="router-link-active"
+        class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> home</a
+      >
+      <a
+        [routerLink]="['/zoo']"
+        routerLinkActive="router-link-active"
+        class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> about</a
+      >
+      <a
+        [routerLink]="['/animal']"
+        routerLinkActive="router-link-active"
+        class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> animali</a
+      >
+
+      <a href="" class="links"
+        ><i class="bi bi-arrow-right-circle-fill"></i> prezzi</a
+      >
+    </div>
+
+    <div class="box">
+      <h3>NewsLetter</h3>
+      <p>Iscriviti per ricevere le ultime novità</p>
+      <a [routerLink]="['/register']" class="btn">iscriviti!</a>
+      <div class="share">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="credit">
+    &copy; 2024 zoowebpark. All rights served by
+    <a href="#" class="link">GianniCbd</a>
+  </div>
+</section>

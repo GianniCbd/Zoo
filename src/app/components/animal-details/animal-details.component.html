@@ -1,27 +1,18 @@
 <div class="container" *ngIf="animal">
-  <div class="box-container" *ngIf="activeTab === 'generalInfo'">
-    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
-    <h2 class="animalName">{{ animal.name }}</h2>
-    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
-  </div>
-  <div class="box-container" *ngIf="activeTab === 'diet'">
-    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
-    <h2 class="animalName">{{ animal.name }}</h2>
-    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
-  </div>
-  <div class="box-container" *ngIf="activeTab === 'distribution'">
-    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
-    <h2 class="animalName">{{ animal.name }}</h2>
-    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
-  </div>
-  <div class="box-container" *ngIf="activeTab === 'reproduction'">
-    <img class="animalImage" [src]="animal.image" alt="Animal Image" />
-    <h2 class="animalName">{{ animal.name }}</h2>
-    <p><Strong>Dove trovarlo nel parco: </Strong> {{ animal.habitat.name }}</p>
-  </div>
+  <ng-container *ngFor="let tab of tabs">
+    <div class="box-container" *ngIf="activeTab === tab.key">
+      <a [routerLink]="['/animal']"
+        ><img class="animalImage" [src]="animal.image" alt="Animal Image"
+      /></a>
+      <h2 class="animalName">{{ animal.name }}</h2>
+      <p class="parHabitat">
+        <Strong>Dove trovarlo nel parco: </Strong
+        ><span>{{ animal.habitat.name }}</span>
+      </p>
+    </div>
+  </ng-container>
 
   <ul class="nav d-flex justify-content-between" role="tablist" id="tabMenu">
-    <!-- Tab per schermi larghi -->
     <li role="presentation" [ngClass]="{ active: activeTab === 'generalInfo' }">
       <a (click)="changeTab('generalInfo')">Informazioni generali</a>
     </li>

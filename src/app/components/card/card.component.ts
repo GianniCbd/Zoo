@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from 'src/app/models/card';
+import { Card, CardType } from 'src/app/models/card';
 import { User } from 'src/app/models/user';
 import { AuthorizationService } from 'src/app/service/authorization.service';
 import { CardService } from 'src/app/service/card.service';
@@ -13,6 +13,7 @@ import { UserService } from 'src/app/service/user.service';
 export class CardComponent implements OnInit {
   cards: Card[] = [];
   myCards: Card[] = [];
+  editingCard: any = null;
 
   // per inserimento spazi in cardNumber
   formattedCardNumber: string = '';
@@ -64,12 +65,17 @@ export class CardComponent implements OnInit {
       }));
     });
   }
-  // codice per inserire gli spazi vuoti ogni 4numeri nel cardNumber
-  formatCardNumber(rawNumber: string): void {
-    this.formattedCardNumber = rawNumber
-      .replace(/\s/g, '')
-      .replace(/(.{4})/g, '$1 ');
+
+  formatCardNumber(cardNumber: string): string {
+    // Rimuove tutti i caratteri non numerici
+    const cleanedNumber = cardNumber.replace(/\D/g, '');
+
+    // Aggiunge uno spazio ogni 4 numeri
+    const formattedNumber = cleanedNumber.replace(/(.{4})/g, '$1 ');
+
+    return formattedNumber.trim(); // Rimuove gli spazi extra alla fine
   }
+
   // aggiunta nuova card
   addNewCard() {
     this.userService.getCurrentUser().subscribe(
@@ -79,7 +85,7 @@ export class CardComponent implements OnInit {
           (createdCard) => {
             this.newCard = {};
             this.cards.push(createdCard);
-            this.showAddModal = true;
+            this.showAddModal = false;
           },
           (error) => {
             console.error('Error creating card:', error);
@@ -104,18 +110,9 @@ export class CardComponent implements OnInit {
     this.newCard.cardType = cardType;
   }
 
-  // effettua pagamento
-  makePayment(cardId: string, amount: number): void {
-    this.cardSrv.makePayment(cardId, amount).subscribe(
-      (response) => {
-        console.log('Pagamento effettuato con successo:', response);
-        // Aggiungi qui la logica per gestire la risposta dal backend (ad esempio, aggiornare l'interfaccia utente)
-      },
-      (error) => {
-        console.error('Errore durante il pagamento:', error);
-        // Aggiungi qui la logica per gestire gli errori (ad esempio, mostrare un messaggio di errore all'utente)
-      }
-    );
+  cancelEdit() {
+    this.editingCard = null;
+    this.showEditModal = false;
   }
 
   // cancello card

@@ -14,4 +14,5 @@ export interface Animal {
   distribution: string;
   reproduction: string;
   habitat: Habitat;
+  isFavorite: boolean;
 }

@@ -1,18 +1,13 @@
-import {
-  Component,
-  OnInit,
-  TemplateRef,
-  ViewChild,
-  AfterViewInit,
-  ElementRef,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth/auth.service';
 import { Animal } from 'src/app/models/animal';
+import { map } from 'rxjs';
 
 import { User } from 'src/app/models/user';
 import { AnimalService } from 'src/app/service/animal.service';
 import { AuthorizationService } from 'src/app/service/authorization.service';
+import { FavoriteService } from 'src/app/service/favorite.service';
 import { HabitatService } from 'src/app/service/habitat.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -24,6 +19,8 @@ import { UserService } from 'src/app/service/user.service';
 export class AnimalsComponent implements OnInit {
   animal: Animal[] = [];
   habitats: any[] = [];
+
+  isFavorite!: boolean;
 
   newAnimal: any = {};
   userId!: string;
@@ -38,12 +35,49 @@ export class AnimalsComponent implements OnInit {
     private authorizationSRV: AuthorizationService,
     private habitatSrv: HabitatService,
     private authSrv: AuthService,
-    private router: Router
+    private router: Router,
+    private favoriteService: FavoriteService
   ) {}
 
   ngOnInit(): void {
     this.fetchAnimals();
     this.fetchHabitats();
+  }
+
+  loadAnimals() {
+    this.animalSrv
+      .getAnimals()
+      .pipe(
+        map((animals) =>
+          animals.map((animal) => ({ ...animal, isFavorite: false }))
+        )
+      )
+      .subscribe(
+        (animals) => {
+          this.animal = animals;
+        },
+        (error) => {
+          console.error('Error loading animals:', error);
+        }
+      );
+  }
+
+  addToFavorites(animalId: number): void {
+    this.favoriteService.saveFavorite(animalId).subscribe(
+      () => {
+        const animalIndex = this.animal.findIndex(
+          (animal) => animal.id === animalId
+        );
+        if (animalIndex !== -1) {
+          this.animal[animalIndex].isFavorite =
+            !this.animal[animalIndex].isFavorite;
+        }
+        alert('Hai aggiunto un animale ai preferiti');
+      },
+      (error) => {
+        console.error('Error saving animal to favorites:', error);
+      }
+    );
   }
 
   viewAnimalDetails(animal: number) {

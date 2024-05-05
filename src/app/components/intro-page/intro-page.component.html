@@ -5,7 +5,9 @@
       avventura <br />
       tra gli animali
     </h3>
-    <a [routerLink]="['/register']" class="btn">Entra nello zoo</a>
+    <a [routerLink]="['/register']" class="btn" *ngIf="!utente"
+      >Entra nello zoo</a
+    >
   </div>
   <div class="wave"></div>
 </section>
@@ -209,8 +211,8 @@
     </div>
   </div>
 </div>
-
-<section class="footer">
+<app-footer></app-footer>
+<!-- <section class="footer">
   <div class="box-container">
     <div class="box">
       <div class="d-flex align-items-baseline">
@@ -275,4 +277,4 @@
     &copy; 2024 zoowebpark. All rights served by
     <a href="#" class="link">GianniCbd</a>
   </div>
-</section>
+</section> -->

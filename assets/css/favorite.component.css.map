@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/app/components/favorite/favorite.component.scss","favorite.component.css"],"names":[],"mappings":"AAAA;EACE,wBAAA;EACA,gBAAA;EACA,iBAAA;EACA,gBAAA;EACA,gBAAA;ACCF;;ADCA;EACE,qBAAA;ACEF;;ADCA;EACE,WAAA;EAEA,YAAA;EACA,cAAA;EACA,gBAAA;ACCF;;ADEA;EACE,eAAA;EACA,mBAAA;ACCF;;ADEA;EACE,eAAA;EACA,UAAA;EACA,WAAA;ACCF","file":"favorite.component.css"}

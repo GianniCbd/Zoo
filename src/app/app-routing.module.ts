@@ -12,6 +12,8 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
 import { MissionComponent } from './components/mission/mission.component';
 import { CardComponent } from './components/card/card.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Route[] = [
   {
@@ -26,10 +28,7 @@ const routes: Route[] = [
     path: 'register',
     component: RegisterComponent,
   },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
+
   {
     path: 'zoo',
     component: ZooComponent,
@@ -42,8 +41,7 @@ const routes: Route[] = [
     path: 'habitat',
     component: HabitatComponent,
   },
-  { path: 'habitats/add', component: HabitatComponent },
-  { path: 'habitats/edit/:id', component: HabitatComponent },
+
   {
     path: 'animal',
     component: AnimalsComponent,
@@ -63,6 +61,14 @@ const routes: Route[] = [
   {
     path: 'card',
     component: CardComponent,
+  },
+  {
+    path: 'favorite',
+    component: FavoriteComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: '**',

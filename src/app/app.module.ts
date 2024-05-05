@@ -24,6 +24,9 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
 import { MissionComponent } from './components/mission/mission.component';
 import { CardComponent } from './components/card/card.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { CardComponent } from './components/card/card.component';
     AnimalDetailsComponent,
     MissionComponent,
     CardComponent,
+    ProfileComponent,
+    FavoriteComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

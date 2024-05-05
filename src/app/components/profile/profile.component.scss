@@ -1,0 +1,115 @@
+section {
+  padding: 5rem 7%;
+}
+
+.user-profile .box-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 5rem;
+}
+
+.user-profile .deco-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 0.5;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.3px rgb(21, 125, 0);
+  transform-origin: top left;
+  transform: rotate(0.25turn);
+  position: absolute;
+  top: 20%;
+  left: 46%;
+  z-index: -1;
+}
+
+.user-profile .box-container .content {
+  flex: 1 1 41rem;
+}
+
+.user-profile .box-container .content .title {
+  font-size: 2.5rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-bottom: 1rem;
+}
+
+.user-profile .box-container .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-profile .box-container .content .info-item {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.user-profile .box-container .content .info-value {
+  font-weight: bold;
+}
+
+.user-profile .box-container .image {
+  flex: 1 1 100%;
+  max-width: 35rem;
+}
+
+.user-profile .box-container .image img {
+  width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .user-profile .box-container .content .title {
+    font-size: 1.8rem;
+    padding-top: 1rem;
+  }
+  .user-profile .deco-title {
+    top: 15%;
+
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .user-profile .box-container .content .title {
+    font-size: 1.8rem;
+    padding-top: 1rem;
+  }
+  .user-profile .deco-title {
+    top: 15%;
+    left: calc(50% + 20px);
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 568px) {
+  .user-profile .box-container .content .title {
+    font-size: 1.3rem;
+  }
+  .user-profile .box-container .content .info-item {
+    font-size: 1rem;
+  }
+  .user-profile .deco-title {
+    display: none;
+  }
+  .user-profile .box-container .image img {
+    width: 300px;
+  }
+}
+
+.container {
+  z-index: 2;
+  padding: 5rem;
+  background-color: #d7d5d5;
+  padding: auto;
+  position: absolute;
+  border: 2px solid green;
+  top: 20%;
+  left: 7%;
+}
+
+.btn {
+  border-radius: 20px;
+  background-color: rgb(4, 104, 3);
+  color: white;
+  font-size: 18px;
+}
