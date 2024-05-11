@@ -78,24 +78,14 @@ export class CardComponent implements OnInit {
 
   // aggiunta nuova card
   addNewCard() {
-    this.userService.getCurrentUser().subscribe(
-      (user) => {
-        const userId = user.id;
-        this.cardSrv.newCard(this.newCard, userId).subscribe(
-          (createdCard) => {
-            this.newCard = {};
-            this.cards.push(createdCard);
-            this.showAddModal = false;
-          },
-          (error) => {
-            console.error('Error creating card:', error);
-          }
-        );
-      },
-      (error) => {
-        console.error('Error getting current user:', error);
-      }
-    );
+    this.userService.getCurrentUser().subscribe((user) => {
+      const userId = user.id;
+      this.cardSrv.newCard(this.newCard, userId).subscribe((createdCard) => {
+        this.newCard = {};
+        this.cards.push(createdCard);
+        this.showAddModal = false;
+      });
+    });
   }
 
   toggleModalVisibility() {

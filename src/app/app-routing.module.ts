@@ -14,6 +14,8 @@ import { MissionComponent } from './components/mission/mission.component';
 import { CardComponent } from './components/card/card.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TicketComponent } from './components/ticket/ticket.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Route[] = [
   {
@@ -69,6 +71,14 @@ const routes: Route[] = [
   {
     path: 'profile',
     component: ProfileComponent,
+  },
+  {
+    path: 'ticket',
+    component: TicketComponent,
+  },
+  {
+    path: 'carrello',
+    component: CartComponent,
   },
   {
     path: '**',

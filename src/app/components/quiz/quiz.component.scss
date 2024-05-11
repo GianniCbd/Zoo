@@ -1,7 +1,6 @@
 .container {
-  padding-top: 5rem;
+  padding-top: 15rem;
   padding-bottom: 2rem;
-  background-color: rgba(169, 169, 169, 0.503);
   max-width: 100%;
 }
 
@@ -20,4 +19,13 @@
 
 .button-grid-item {
   text-align: center;
+}
+
+.timer span {
+  color: #d9534f;
+}
+
+.timer h4 {
+  font-weight: bold;
+  margin-top: 1rem;
 }

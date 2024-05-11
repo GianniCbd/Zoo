@@ -172,6 +172,73 @@ export class ChessComponent {
       this.board[newPos.row][newPos.col] = piece;
     }
   }
+
+  findKing(color: 'white' | 'black'): Position | undefined {
+    for (let i = 0; i < this.board.length; i++) {
+      for (let j = 0; j < this.board[i].length; j++) {
+        if (
+          this.board[i][j].piece?.type === 'king' &&
+          this.board[i][j].piece?.color === color
+        ) {
+          return { row: i, col: j };
+        }
+      }
+    }
+    return undefined;
+  }
+
+  isInCheck(position: Position, color: 'white' | 'black'): boolean {
+    // Scorri tutte le caselle del tabellone
+    for (let i = 0; i < this.board.length; i++) {
+      for (let j = 0; j < this.board[i].length; j++) {
+        const piece = this.board[i][j].piece;
+        if (piece && piece.color !== color) {
+          // Se un pezzo avversario può legalmente muoversi nella posizione del re, allora il re è sotto scacco
+          if (this.validMove(i, j, position.row, position.col)) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  isValidPosition(row: number, col: number): boolean {
+    return (
+      row >= 0 &&
+      row < this.board.length &&
+      col >= 0 &&
+      col < this.board[row].length
+    );
+  }
+
+  isCheckmate(color: 'white' | 'black'): boolean {
+    const kingPosition = this.findKing(color);
+    if (!kingPosition || !this.isInCheck(kingPosition, color)) return false;
+
+    // Controlla tutte le possibili mosse del re per vedere se può muoversi fuori dallo scacco
+    const directions = [
+      [1, 1],
+      [1, -1],
+      [-1, 1],
+      [-1, -1],
+      [1, 0],
+      [0, 1],
+      [-1, 0],
+      [0, -1],
+    ];
+    for (let [dx, dy] of directions) {
+      const newRow = kingPosition.row + dx;
+      const newCol = kingPosition.col + dy;
+      if (
+        this.isValidPosition(newRow, newCol) &&
+        this.validMove(kingPosition.row, kingPosition.col, newRow, newCol)
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
 
 function createBoard(): Cell[][] {

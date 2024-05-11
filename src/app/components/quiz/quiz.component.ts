@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map, take, takeWhile, timer } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -33,14 +34,64 @@ export class QuizComponent implements OnInit {
       correct_answer: 'Canguro',
       answers: ['Canguro', 'Koala', 'Dingo', 'Wombat'],
     },
+    {
+      question:
+        'Quale animale è noto per la sua capacità di correre a velocità elevate?',
+      correct_answer: 'Ghepardo',
+      answers: ['Ghepardo', 'Leopardo', 'Tigre', 'Leone'],
+    },
+    {
+      question: 'Quale uccello è famoso per la sua lunga migrazione?',
+      correct_answer: 'Rondine',
+      answers: ['Rondine', 'Falco', 'Pinguino', 'Gufo'],
+    },
   ];
 
   currentQuestionIndex = 0;
   answers: string[] = [];
   buttonPressed: boolean = false;
+
+  correctCount = 0;
+  incorrectCount = 0;
+
+  remainingTime = 20;
+  subscription: any;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.startTimer();
+  }
+
+  isSelected(answer: string): boolean {
+    return this.answers[this.currentQuestionIndex] === answer;
+  }
+
+  startTimer() {
+    this.remainingTime = 20;
+    this.subscription = timer(0, 1000)
+      .pipe(takeWhile(() => this.remainingTime > 0))
+      .subscribe(() => {
+        this.remainingTime--;
+        if (this.remainingTime <= 0) {
+          alert('Tempo scaduto! Passiamo alla prossima domanda.');
+          this.moveToNextQuestion();
+        }
+      });
+  }
+
+  resetTimer() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    this.startTimer();
+  }
+
+  resetQuiz() {
+    this.currentQuestionIndex = 0;
+    this.answers = [];
+    this.subscription.unsubscribe();
+    this.startTimer();
+  }
 
   selectAnswer(answer: string, questionIndex: number) {
     this.answers[questionIndex] = answer;
@@ -51,18 +102,29 @@ export class QuizComponent implements OnInit {
     const userAnswer = this.answers[this.currentQuestionIndex];
 
     if (userAnswer === currentQuestion.correct_answer) {
+      this.correctCount++;
       alert('Risposta corretta!');
+      this.moveToNextQuestion();
     } else {
+      this.incorrectCount++;
       alert('Risposta errata! Riprova!');
-      return;
+      this.moveToNextQuestion();
     }
+  }
 
+  displayResults() {
+    alert(
+      `Hai completato il quiz! Risposte corrette: ${this.correctCount}, Risposte sbagliate: ${this.incorrectCount}`
+    );
+    this.resetQuiz();
+  }
+
+  moveToNextQuestion() {
     this.currentQuestionIndex++;
-
-    if (this.currentQuestionIndex === this.animalQuestions.length) {
-      // Se tutte le domande sono state risposte, reimposta l'indice e le risposte
-      this.currentQuestionIndex = 0;
-      this.answers = [];
+    if (this.currentQuestionIndex < this.animalQuestions.length) {
+      this.resetTimer();
+    } else {
+      this.displayResults();
     }
   }
 }

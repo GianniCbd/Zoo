@@ -1,0 +1,99 @@
+<section class="ticket-section">
+  <div class="container-ticket mt-4">
+    <h2 class="text-center">Acquista i Tuoi Biglietti</h2>
+    <p>
+      Benvenuto nel sistema di acquisto dei biglietti per ZooWebPark! Qui potrai
+      scegliere tra una varietà di biglietti che ti daranno accesso alle nostre
+      fantastiche attrazioni e ai nostri emozionanti eventi. Ogni biglietto
+      acquistato ci aiuta a sostenere la nostra missione di conservazione della
+      natura e della biodiversità.
+    </p>
+    <p>
+      Scegli il tipo di biglietto che preferisci e aggiungilo al tuo carrello.
+      Una volta completato il tuo ordine, sarai pronto per esplorare tutto ciò
+      che ZooWebPark ha da offrire!
+    </p>
+    <p class="text-muted">Nota: Il prezzo indicato è per persona.</p>
+  </div>
+
+  <div class="container-card mt-5">
+    <div class="box-container d-flex justify-content-between">
+      <div class="cardTicket pt-4" *ngFor="let tickets of ticket">
+        <div class="card-body d-flex justify-content-between">
+          <div class="card-title">
+            <h1>{{ tickets.ticketType }}</h1>
+          </div>
+          <div class="card-text">
+            <p><strong>Prezzo: </strong>{{ tickets.price }}</p>
+          </div>
+        </div>
+        <button class="btn btn-light" (click)="addToCart(tickets.id)">
+          <i class="bi bi-cart-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<button
+  id="addButton"
+  class="btn button my-5"
+  (click)="toggleModalVisibility()"
+  *ngIf="canShowButton()"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="50"
+    height="50"
+    fill="dark"
+    class="bi bi-patch-plus-fill"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zM8.5 6v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0"
+    />
+  </svg>
+</button>
+
+<!-- ADD TICKETS  -->
+
+<div
+  class="modal-container col-8 col-sm-8 col-md-5 col-lg-5"
+  *ngIf="addNewTicket"
+>
+  <div class="modal-content" *ngIf="showAddModal">
+    <div class="modal-body fw-semibold">
+      <h5 class="modal-title fw-semibold text-center">Inserisci dati</h5>
+
+      <div class="form-group">
+        <label for="ticketType">Tipologia Biglietto</label>
+        <input
+          type="text"
+          class="form-control"
+          id="ticketType"
+          name="ticketType"
+          [(ngModel)]="newTicket.ticketType"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="price">Prezzo</label>
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          name="rice"
+          [(ngModel)]="newTicket.price"
+          required
+        />
+      </div>
+
+      <div class="d-flex justify-content-between align-item mt-3">
+        <button class="btnMod btn-secondary" (click)="addNewTicket()">
+          Aggiungi
+        </button>
+        <button class="btnMod btn-dark" (click)="close()">chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>

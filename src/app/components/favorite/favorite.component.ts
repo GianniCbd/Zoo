@@ -30,15 +30,10 @@ export class FavoriteComponent implements OnInit {
   }
 
   getCurrentUser(): void {
-    this.authService.getMe().subscribe(
-      (user: User) => {
-        this.userId = user.id;
-        this.getMyFavorites();
-      },
-      (error) => {
-        console.error('Error fetching current user: ', error);
-      }
-    );
+    this.authService.getMe().subscribe((user: User) => {
+      this.userId = user.id;
+      this.getMyFavorites();
+    });
   }
 
   viewAnimalDetails(animal: number) {
@@ -46,14 +41,10 @@ export class FavoriteComponent implements OnInit {
   }
 
   getMyFavorites(): void {
-    this.favoriteService.getMyFavorite(this.userId).subscribe(
-      (favorites: Favorite[]) => {
+    this.favoriteService
+      .getMyFavorite(this.userId)
+      .subscribe((favorites: Favorite[]) => {
         this.favorites = favorites;
-        console.log(favorites);
-      },
-      (error) => {
-        console.error('Error fetching favorites: ', error);
-      }
-    );
+      });
   }
 }

@@ -52,32 +52,22 @@ export class AnimalsComponent implements OnInit {
           animals.map((animal) => ({ ...animal, isFavorite: false }))
         )
       )
-      .subscribe(
-        (animals) => {
-          this.animal = animals;
-        },
-        (error) => {
-          console.error('Error loading animals:', error);
-        }
-      );
+      .subscribe((animals) => {
+        this.animal = animals;
+      });
   }
 
   addToFavorites(animalId: number): void {
-    this.favoriteService.saveFavorite(animalId).subscribe(
-      () => {
-        const animalIndex = this.animal.findIndex(
-          (animal) => animal.id === animalId
-        );
-        if (animalIndex !== -1) {
-          this.animal[animalIndex].isFavorite =
-            !this.animal[animalIndex].isFavorite;
-        }
-        alert('Hai aggiunto un animale ai preferiti');
-      },
-      (error) => {
-        console.error('Error saving animal to favorites:', error);
+    this.favoriteService.saveFavorite(animalId).subscribe(() => {
+      const animalIndex = this.animal.findIndex(
+        (animal) => animal.id === animalId
+      );
+      if (animalIndex !== -1) {
+        this.animal[animalIndex].isFavorite =
+          !this.animal[animalIndex].isFavorite;
       }
-    );
+      alert('Hai aggiunto un animale ai preferiti');
+    });
   }
 
   viewAnimalDetails(animal: number) {
@@ -109,54 +99,34 @@ export class AnimalsComponent implements OnInit {
   }
 
   fetchHabitats() {
-    this.habitatSrv.getHabitats().subscribe(
-      (data) => {
-        this.habitats = data;
-        console.log(data);
-      },
-      (error) => {
-        console.error('Error retrieving habitats', error);
-      }
-    );
+    this.habitatSrv.getHabitats().subscribe((data) => {
+      this.habitats = data;
+    });
   }
 
   fetchAnimals() {
-    this.animalSrv.getAnimals().subscribe(
-      (data) => {
-        this.animal = data.sort((a, b) =>
-          a.habitat.name > b.habitat.name
-            ? 1
-            : b.habitat.name > a.habitat.name
-            ? -1
-            : 0
-        );
-        console.log(data);
-      },
-      (error) => {
-        console.error('Error retrieving animals', error);
-      }
-    );
+    this.animalSrv.getAnimals().subscribe((data) => {
+      this.animal = data.sort((a, b) =>
+        a.habitat.name > b.habitat.name
+          ? 1
+          : b.habitat.name > a.habitat.name
+          ? -1
+          : 0
+      );
+    });
   }
 
   addNewAnimal() {
-    this.userService.getCurrentUser().subscribe(
-      (user) => {
-        const userId = user.id;
-        this.animalSrv.newAnimal(this.newAnimal, userId).subscribe(
-          (createdAnimal) => {
-            this.newAnimal = {};
-            this.animal.push(createdAnimal);
-            this.showAddModal = true;
-          },
-          (error) => {
-            console.error('Error creating animal:', error);
-          }
-        );
-      },
-      (error) => {
-        console.error('Error getting current user:', error);
-      }
-    );
+    this.userService.getCurrentUser().subscribe((user) => {
+      const userId = user.id;
+      this.animalSrv
+        .newAnimal(this.newAnimal, userId)
+        .subscribe((createdAnimal) => {
+          this.newAnimal = {};
+          this.animal.push(createdAnimal);
+          this.showAddModal = true;
+        });
+    });
   }
   toggleModalVisibility() {
     this.showAddModal = !this.showAddModal;
@@ -183,12 +153,7 @@ export class AnimalsComponent implements OnInit {
           this.cancelEdit();
           this.fetchAnimals();
         },
-        (error) => {
-          console.error(
-            "Errore durante l'aggiornamento della prenotazione:",
-            error
-          );
-        }
+        (error) => {}
       );
   }
 
@@ -220,15 +185,12 @@ export class AnimalsComponent implements OnInit {
 
     if (file && this.editingAnimal) {
       console.log('passato');
-      this.animalSrv.uploadAvatar(this.editingAnimal.id, file).subscribe(
-        (imageUrl: string) => {
+      this.animalSrv
+        .uploadAvatar(this.editingAnimal.id, file)
+        .subscribe((imageUrl: string) => {
           this.editingAnimal.image = imageUrl;
           console.log(imageUrl);
-        },
-        (error: any) => {
-          console.error("Errore durante l'upload dell'avatar:", error);
-        }
-      );
+        });
     }
   }
 }

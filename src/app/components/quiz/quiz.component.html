@@ -10,13 +10,22 @@
         "
       >
         <button
-          class="btn btn-success mb-1"
+          class="btn mb-1"
+          [ngClass]="{
+            'btn-success': isSelected(answer),
+            'btn-secondary': !isSelected(answer)
+          }"
           (click)="selectAnswer(answer, currentQuestionIndex)"
         >
           {{ answer }}
         </button>
       </div>
     </div>
+  </div>
+  <div class="timer">
+    <h4>
+      Tempo Rimasto: <span>{{ remainingTime }}</span> secondi
+    </h4>
   </div>
   <button class="btn btn-dark" (click)="submitQuiz()">Invia</button>
 </div>

@@ -1,0 +1,14 @@
+<div
+  class="cardTicket d-flex justify-content-between pt-5 mt-5"
+  *ngFor="let cartItem of cart"
+>
+  <h1 class="card-title">{{ cartItem.ticket?.ticketType }}</h1>
+  <div>
+    <p class="card-text">
+      <strong>Prezzo: </strong>{{ cartItem.ticket?.price }}
+    </p>
+  </div>
+  <button class="btnMod btn-dark m-1" (click)="deleteCart(cartItem)">
+    elimina
+  </button>
+</div>

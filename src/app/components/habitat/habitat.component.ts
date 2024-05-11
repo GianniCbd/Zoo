@@ -23,14 +23,9 @@ export class HabitatComponent implements OnInit {
   }
 
   fetchHabitats() {
-    this.habitatSrv.getHabitats().subscribe(
-      (data) => {
-        this.habitats = data;
-        console.log(data);
-      },
-      (error) => {
-        console.error('Error retrieving habitats', error);
-      }
-    );
+    this.habitatSrv.getHabitats().subscribe((data) => {
+      this.habitats = data;
+      console.log(data);
+    });
   }
 }
