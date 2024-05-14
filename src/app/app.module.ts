@@ -29,6 +29,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { CartComponent } from './components/cart/cart.component';
+import { MapComponent } from './components/map/map.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { CartComponent } from './components/cart/cart.component';
     FooterComponent,
     TicketComponent,
     CartComponent,
+    MapComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

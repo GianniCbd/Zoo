@@ -16,6 +16,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { CartComponent } from './components/cart/cart.component';
+import { MapComponent } from './components/map/map.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Route[] = [
   {
@@ -79,6 +81,14 @@ const routes: Route[] = [
   {
     path: 'carrello',
     component: CartComponent,
+  },
+  {
+    path: 'map',
+    component: MapComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
   },
   {
     path: '**',

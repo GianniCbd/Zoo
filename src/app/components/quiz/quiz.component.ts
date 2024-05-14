@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map, take, takeWhile, timer } from 'rxjs';
+import { Subscription, map, take, takeWhile, timer } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -51,15 +51,27 @@ export class QuizComponent implements OnInit {
   answers: string[] = [];
   buttonPressed: boolean = false;
 
+  showSpinner: boolean = true;
+
   correctCount = 0;
   incorrectCount = 0;
 
   remainingTime = 20;
-  subscription: any;
+  subscription!: Subscription;
+
   constructor() {}
 
   ngOnInit(): void {
-    this.startTimer();
+    timer(5000).subscribe(() => {
+      this.showSpinner = false;
+      this.startTimer();
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   isSelected(answer: string): boolean {
@@ -89,8 +101,11 @@ export class QuizComponent implements OnInit {
   resetQuiz() {
     this.currentQuestionIndex = 0;
     this.answers = [];
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
     this.startTimer();
+    window.location.reload();
   }
 
   selectAnswer(answer: string, questionIndex: number) {

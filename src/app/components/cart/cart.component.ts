@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
   tickets: Ticket[] = [];
 
   userId!: string;
+  ticketCount: number = 0;
 
   currentUser!: User;
 
@@ -47,6 +48,7 @@ export class CartComponent implements OnInit {
           this.cart.splice(index, 1);
         }
       });
+      window.location.reload();
     } else {
       console.error(
         "Errore: l'oggetto cartToDelete o la sua proprietà 'id' sono undefined."

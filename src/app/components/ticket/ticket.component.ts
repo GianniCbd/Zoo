@@ -55,6 +55,7 @@ export class TicketComponent implements OnInit {
         this.ticket[ticketIndex].toBuy = !this.ticket[ticketIndex].toBuy;
       }
       alert('Hai aggiunto un biglietto al carrello');
+      window.location.reload();
     });
   }
 
@@ -101,4 +102,6 @@ export class TicketComponent implements OnInit {
   close() {
     this.showAddModal = false;
   }
+
+  // Assicurati di avere i tipi di Bootstrap se stai usando TypeScript
 }

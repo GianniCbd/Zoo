@@ -53,7 +53,10 @@
                   <li [routerLink]="['/profile']">Profilo</li>
                   <li [routerLink]="['/ticket']">Acquista ticket</li>
                   <li [routerLink]="['/favorite']">Preferiti</li>
-                  <li [routerLink]="['/carrello']">Carrello</li>
+                  <li [routerLink]="['/carrello']">
+                    Carrello
+                    <span class="badge text-bg-warning">{{ ticketCount }}</span>
+                  </li>
                   <li [routerLink]="['/chess']">Scacchi</li>
                   <li [routerLink]="['/quiz']">Quiz</li>
                 </div>
@@ -81,11 +84,12 @@
                   <h6 class="fw-bolder">A proposito di noi</h6>
                   <li [routerLink]="['/zoo']">Storia</li>
                   <li [routerLink]="['/mission']">Mission</li>
+                  <li [routerLink]="['/map']">Mappa del parco</li>
                   <li>Aziende Partner</li>
                 </div>
                 <div class="link">
                   <h6 class="fw-bolder">Contatti</h6>
-                  <li>Contatti</li>
+                  <li [routerLink]="['/contact']">Contatti</li>
                   <li>Richieste commerciali</li>
                   <li>Lavora con noi</li>
                 </div>

@@ -1,0 +1,45 @@
+.contact-info {
+  display: flex;
+  align-items: center;
+}
+
+h4 {
+  color: green;
+}
+a {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    padding-right: 3rem;
+  }
+}
+
+.contact-info .fa-icon {
+  font-size: 1.5rem;
+  color: #ff6347;
+}
+.map-container {
+  position: relative;
+}
+.map-container iframe {
+  border: 0;
+  border-radius: 10px;
+}
+.contact-image {
+  border-radius: 50%;
+
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+}
+.contact-image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  height: auto;
+}
+
+.map-container .iframe {
+  border-radius: 10% 20% / 10% 40%;
+  box-shadow: 12px 12px 2px 1px #39c458;
+}

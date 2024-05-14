@@ -1,14 +1,48 @@
-<div
-  class="cardTicket d-flex justify-content-between pt-5 mt-5"
-  *ngFor="let cartItem of cart"
->
-  <h1 class="card-title">{{ cartItem.ticket?.ticketType }}</h1>
-  <div>
-    <p class="card-text">
-      <strong>Prezzo: </strong>{{ cartItem.ticket?.price }}
+<section class="ticket-section">
+  <div class="container-ticket mt-4">
+    <h2 class="text-center">Il tuo carrello</h2>
+    <p>
+      Conferma l'acquisto dei biglietti per ZooWebPark! Qui potrai confermare o
+      cancellare i biglietti che ti daranno accesso alle nostre fantastiche
+      attrazioni e ai nostri emozionanti eventi. Ogni biglietto acquistato ci
+      aiuta a sostenere la nostra missione di conservazione della natura e della
+      biodiversità.
+    </p>
+    <p>
+      Una volta completato il pagamento, sarai pronto per esplorare tutto ciò
+      che ZooWebPark ha da offrire!
+    </p>
+    <p class="text-muted">
+      Nota: Mostra la stampa del ticket che riceverai via mail, oppure usa il
+      ticket presente nell'app all'ingresso del parco.
     </p>
   </div>
-  <button class="btnMod btn-dark m-1" (click)="deleteCart(cartItem)">
-    elimina
-  </button>
-</div>
+
+  <div class="card-ticket-container d-flex justify-content-between">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="row">
+          <div
+            class="col-lg-4 col-md-5 col-sm-10 pt-4"
+            *ngFor="let cartItem of cart"
+          >
+            <div class="card">
+              <h1>{{ cartItem.ticket?.ticketType }}</h1>
+              <p><strong>Prezzo: </strong>{{ cartItem.ticket?.price }}</p>
+              <div class="d-flex justify-content-between">
+                <button class="btn btnAdd btnBuy">Acquista</button>
+                <button
+                  class="btn btnAdd btnDelete"
+                  (click)="deleteCart(cartItem)"
+                >
+                  Elimina
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

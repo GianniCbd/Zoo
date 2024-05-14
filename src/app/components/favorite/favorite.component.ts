@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth/auth.service';
 import { Animal } from 'src/app/models/animal';
 import { Favorite } from 'src/app/models/favorite';
@@ -46,5 +46,16 @@ export class FavoriteComponent implements OnInit {
       .subscribe((favorites: Favorite[]) => {
         this.favorites = favorites;
       });
+  }
+
+  deleteFavorite(animalId: number): void {
+    this.favoriteService.deleteFavorite(this.userId, animalId).subscribe({
+      next: () => {
+        this.favorites = this.favorites.filter(
+          (favorite) => favorite.animalId !== animalId
+        );
+        window.location.reload();
+      },
+    });
   }
 }

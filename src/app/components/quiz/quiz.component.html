@@ -1,31 +1,45 @@
-<div class="container text-center" *ngIf="animalQuestions.length > 0">
-  <div>
-    <h3>{{ animalQuestions[currentQuestionIndex].question }}</h3>
-    <div class="button-grid">
-      <div
-        class="button-grid-item"
-        *ngFor="
-          let answer of animalQuestions[currentQuestionIndex].answers;
-          let i = index
-        "
-      >
-        <button
-          class="btn mb-1"
-          [ngClass]="{
-            'btn-success': isSelected(answer),
-            'btn-secondary': !isSelected(answer)
-          }"
-          (click)="selectAnswer(answer, currentQuestionIndex)"
+<div
+  *ngIf="showSpinner"
+  class="d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="mt-3 me-2">
+    <p>Il quiz sta per iniziare...</p>
+  </div>
+  <div class="spinner-border text-success" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+<div *ngIf="!showSpinner" class="container">
+  <div class="box-container text-center" *ngIf="animalQuestions.length > 0">
+    <div>
+      <h3>{{ animalQuestions[currentQuestionIndex].question }}</h3>
+      <div class="button-grid">
+        <div
+          class="button-grid-item"
+          *ngFor="
+            let answer of animalQuestions[currentQuestionIndex].answers;
+            let i = index
+          "
         >
-          {{ answer }}
-        </button>
+          <button
+            class="btn mb-1"
+            [ngClass]="{
+              'btn-success': isSelected(answer),
+              'btn-secondary': !isSelected(answer)
+            }"
+            (click)="selectAnswer(answer, currentQuestionIndex)"
+          >
+            {{ answer }}
+          </button>
+        </div>
       </div>
     </div>
+    <div class="timer">
+      <h4>
+        Tempo Rimasto: <span>{{ remainingTime }}</span> secondi
+      </h4>
+    </div>
+    <button class="btn btn-dark" (click)="submitQuiz()">Invia</button>
   </div>
-  <div class="timer">
-    <h4>
-      Tempo Rimasto: <span>{{ remainingTime }}</span> secondi
-    </h4>
-  </div>
-  <button class="btn btn-dark" (click)="submitQuiz()">Invia</button>
 </div>

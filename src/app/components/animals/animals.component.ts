@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth/auth.service';
 import { Animal } from 'src/app/models/animal';
-import { map } from 'rxjs';
+import { map, timer } from 'rxjs';
 
 import { User } from 'src/app/models/user';
 import { AnimalService } from 'src/app/service/animal.service';
@@ -20,6 +20,7 @@ export class AnimalsComponent implements OnInit {
   animal: Animal[] = [];
   habitats: any[] = [];
 
+  showSpinner: boolean = true;
   isFavorite!: boolean;
 
   newAnimal: any = {};
@@ -40,6 +41,10 @@ export class AnimalsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    timer(6000).subscribe(() => {
+      this.showSpinner = false;
+    });
+
     this.fetchAnimals();
     this.fetchHabitats();
   }
@@ -66,7 +71,6 @@ export class AnimalsComponent implements OnInit {
         this.animal[animalIndex].isFavorite =
           !this.animal[animalIndex].isFavorite;
       }
-      alert('Hai aggiunto un animale ai preferiti');
     });
   }
 

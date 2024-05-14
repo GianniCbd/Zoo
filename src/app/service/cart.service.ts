@@ -17,6 +17,10 @@ export class CartService {
     return this.http.get<Cart[]>(url);
   }
 
+  getTicketCountInCart(userId: string): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/cart/count?userId=${userId}`);
+  }
+
   saveFavorite(ticketId: number): Observable<any> {
     const requestBody = {
       ticketId: ticketId,

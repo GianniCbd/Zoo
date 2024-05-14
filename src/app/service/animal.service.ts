@@ -56,8 +56,8 @@ export class AnimalService {
     return this.http.patch(url, formData, { responseType: 'text' });
   }
 
-  getCountAnimalsByHabitat(): Observable<Object[]> {
-    return this.http.get<Object[]>(`${this.apiUrl}/animals/countByHabitat`);
+  getCountAnimalsByHabitat(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/animals/countByHabitat`);
   }
 
   private getAccessToken(): string {

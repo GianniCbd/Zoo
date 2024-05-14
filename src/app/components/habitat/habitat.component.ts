@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 import { Habitat } from 'src/app/models/habitat';
+import { AnimalService } from 'src/app/service/animal.service';
 import { HabitatService } from 'src/app/service/habitat.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -16,7 +18,10 @@ export class HabitatComponent implements OnInit {
   showAddModal: boolean = false;
   showEditModal: boolean = false;
 
-  constructor(private habitatSrv: HabitatService) {}
+  constructor(
+    private habitatSrv: HabitatService,
+    private AnimalSrv: AnimalService
+  ) {}
 
   ngOnInit(): void {
     this.fetchHabitats();

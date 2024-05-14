@@ -26,6 +26,14 @@ export class FavoriteService {
       .pipe(catchError(this.handleError));
   }
 
+  deleteFavorite(userId: string, animalId: number): Observable<any> {
+    const url = `${this.apiUrl}/favorites/delete/${animalId}`;
+    const options = {
+      params: new HttpParams().set('userId', userId),
+    };
+    return this.http.delete(url, options);
+  }
+
   private handleError(error: any): Observable<never> {
     console.error('An error occurred:', error);
     return throwError('Something went wrong, please try again later.');
