@@ -93,6 +93,7 @@ export class TicketComponent implements OnInit {
           this.newTicket = {};
           this.ticket.push(createdTicket);
           this.showAddModal = true;
+          window.location.reload();
         });
     });
   }
@@ -103,5 +104,9 @@ export class TicketComponent implements OnInit {
     this.showAddModal = false;
   }
 
-  // Assicurati di avere i tipi di Bootstrap se stai usando TypeScript
+  deleteTicket(id: number): void {
+    this.ticketService.deleteTicket(id).subscribe(() => {
+      this.ticket = this.ticket.filter((ticket) => ticket.id !== id);
+    });
+  }
 }

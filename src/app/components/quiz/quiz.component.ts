@@ -68,12 +68,6 @@ export class QuizComponent implements OnInit {
     });
   }
 
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
   isSelected(answer: string): boolean {
     return this.answers[this.currentQuestionIndex] === answer;
   }
@@ -140,6 +134,12 @@ export class QuizComponent implements OnInit {
       this.resetTimer();
     } else {
       this.displayResults();
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }

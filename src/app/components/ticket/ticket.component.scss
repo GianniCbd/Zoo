@@ -50,14 +50,22 @@
   position: absolute;
   bottom: 10px;
   left: 0;
-  width: 100%;
+  width: 45%;
+}
+
+.card .btnDelete {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  width: 45%;
 }
 
 .btn {
   margin-top: 10px;
 }
 
-.btnAdd {
+.btnAdd,
+.btnDelete {
   color: white;
   background-color: rgb(10, 77, 0);
 }

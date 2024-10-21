@@ -52,6 +52,25 @@
     </div>
   </section>
   <div class="container">
+    <button
+      id="addButton"
+      class="btn btn-dark mt-1"
+      (click)="toggleModalVisibility()"
+      *ngIf="canShowButton()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        fill="white"
+        class="bi bi-patch-plus-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zM8.5 6v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0"
+        />
+      </svg>
+    </button>
     <div class="row">
       <div class="col-sm-12">
         <h3 class="my-4 fw-bolder">Esplorando gli habitat del nostro Zoo</h3>
@@ -383,3 +402,68 @@
     </div>
   </div>
 </main>
+
+<!-- ADD -->
+<div
+  class="modal-container col-8 col-sm-8 col-md-5 col-lg-5"
+  *ngIf="addNewHabitat"
+>
+  <div class="modal-content" *ngIf="showAddModal">
+    <div class="modal-body fw-semibold">
+      <h5 class="modal-title fw-semibold text-center">Inserisci dati</h5>
+
+      <div class="form-group">
+        <label for="name">Habitat</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          [(ngModel)]="newHabitat.name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="type">Tipologia</label>
+        <input
+          type="text"
+          class="form-control"
+          id="type"
+          name="type"
+          [(ngModel)]="newHabitat.type"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="capacity">Capacità</label>
+        <input
+          type="number"
+          class="form-control"
+          id="capacity"
+          name="capacity"
+          [(ngModel)]="newHabitat.capacity"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="terrainType">Tipologia Terreno</label>
+        <input
+          type="text"
+          class="form-control"
+          id="terrainType"
+          name="terrainType"
+          [(ngModel)]="newHabitat.terrainType"
+          required
+        />
+      </div>
+
+      <div class="d-flex justify-content-between align-item mt-3">
+        <button class="btnMod btn-secondary" (click)="addNewHabitat()">
+          Aggiungi
+        </button>
+        <button class="btnMod btn-dark" (click)="close()">chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>

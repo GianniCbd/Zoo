@@ -177,10 +177,6 @@ export class AnimalsComponent implements OnInit {
           this.animal.splice(index, 1);
         }
       });
-    } else {
-      console.error(
-        "Errore: l'oggetto animalToDelete o la sua proprietà 'id' sono undefined."
-      );
     }
   }
 
@@ -188,7 +184,6 @@ export class AnimalsComponent implements OnInit {
     const file: File = event.target.files[0];
 
     if (file && this.editingAnimal) {
-      console.log('passato');
       this.animalSrv
         .uploadAvatar(this.editingAnimal.id, file)
         .subscribe((imageUrl: string) => {

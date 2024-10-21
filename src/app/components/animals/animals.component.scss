@@ -39,7 +39,9 @@
 }
 
 .card-content {
-  padding: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #8bb050;
 }
 
 .card-title {
@@ -56,6 +58,11 @@
 .fade:not(.show) {
   opacity: 1;
 }
+
+.bi-star {
+  font-size: larger;
+}
+
 @media screen and (max-width: 600px) {
   .card {
     width: calc(100% - 40px);

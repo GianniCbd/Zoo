@@ -33,14 +33,9 @@ export class AnimalDetailsComponent implements OnInit {
   }
 
   fetchAnimal(animalId: number) {
-    this.animalSrv.findById(animalId).subscribe(
-      (data) => {
-        this.animal = data;
-      },
-      (error) => {
-        console.error('Error retrieving animal', error);
-      }
-    );
+    this.animalSrv.findById(animalId).subscribe((data) => {
+      this.animal = data;
+    });
   }
 
   changeTab(tabName: string) {
