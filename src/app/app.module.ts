@@ -31,6 +31,7 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MapComponent } from './components/map/map.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { CampoFioritoComponent } from './components/campo-fiorito/campo-fiorito.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ContactComponent } from './components/contact/contact.component';
     CartComponent,
     MapComponent,
     ContactComponent,
+    CampoFioritoComponent,
   ],
   imports: [
     BrowserModule,

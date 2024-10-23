@@ -1,0 +1,26 @@
+<div class="game-container">
+  <h2>Gioco Prato Fiorito degli Animali</h2>
+  <div class="grid">
+    <div *ngFor="let row of grid; let rowIndex = index">
+      <div
+        *ngFor="let cell of row; let colIndex = index"
+        class="cell"
+        [class.revealed]="cell.revealed"
+        (click)="revealCell(rowIndex, colIndex)"
+      >
+        <span *ngIf="cell.revealed">
+          {{
+            cell.hasLion
+              ? "🦁"
+              : cell.adjacentLions > 0
+              ? cell.adjacentLions
+              : ""
+          }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <button (click)="restartGame()" *ngIf="gameOver">Ricomincia il Gioco</button>
+</div>
+
+<button (click)="getLeaderboard()">Mostra Classifica</button>
